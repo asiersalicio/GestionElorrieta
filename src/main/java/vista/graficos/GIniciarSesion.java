@@ -24,7 +24,6 @@ public class GIniciarSesion extends Vista {
 	public JButton btnIniciar;
 	public JTextField puertoField;
 	public JLabel lblError;
-	private JLabel lblNewLabel;
 	
 	public GIniciarSesion()
 	{
@@ -91,12 +90,7 @@ public class GIniciarSesion extends Vista {
 		lblError = new JLabel("Error");
 		lblError.setVisible(false);
 		lblError.setForeground(Color.RED);
-		lblError.setBounds(24, 276, 265, 15);
+		lblError.setBounds(10, 276, 265, 15);
 		ventana.getContentPane().add(lblError);
-		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(GIniciarSesion.class.getResource("/res/Hezkuntza.jpg")));
-		lblNewLabel.setBounds(212, 12, 136, 55);
-		ventana.getContentPane().add(lblNewLabel);
 	}
 }

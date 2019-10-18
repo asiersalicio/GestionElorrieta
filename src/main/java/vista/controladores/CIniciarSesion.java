@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import app.Main;
 import vista.graficos.GIniciarSesion;
 
 public class CIniciarSesion extends GIniciarSesion{
@@ -106,6 +107,7 @@ public class CIniciarSesion extends GIniciarSesion{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				IniciarSesion();
 				
 			}
@@ -142,6 +144,7 @@ public class CIniciarSesion extends GIniciarSesion{
 			{
 			case 0: 
 				ventana.dispose();
+				Main.bd.Prueba();
 				break;
 			case 1: 
 				lblError.setText("Usuario o contraseña incorrecta");
