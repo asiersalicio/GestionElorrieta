@@ -3,16 +3,18 @@ package vista.graficos;
 import java.awt.Font;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import vista.Vista;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class GIniciarSesion extends Vista {
 	
-	public JFrame ventana;
+	public JDialog ventana;
 	public JLabel lblServidor;
 	public JLabel lblUsuario;
 	public JTextField userField;
@@ -20,13 +22,18 @@ public class GIniciarSesion extends Vista {
 	public JPasswordField passwordField;
 	public JTextField serverField;
 	public JButton btnIniciar;
-	private JTextField puertoField;
+	public JTextField puertoField;
+	public JLabel lblError;
+	private JLabel lblNewLabel;
 	
 	public GIniciarSesion()
 	{
-		ventana = new JFrame();
+		ventana = new JDialog();
+		ventana.setTitle("Iniciar sesión en Hezkuntza");
+		ventana.setModal(true);
 		ventana.setSize(370, 370);
 		ventana.setResizable(false);
+		ventana.setLocationRelativeTo(null);
 		ventana.getContentPane().setLayout(null);
 		
 		JLabel lblIniciarSesion = new JLabel("Iniciar sesi\u00F3n");
@@ -80,5 +87,16 @@ public class GIniciarSesion extends Vista {
 		puertoField.setColumns(10);
 		puertoField.setBounds(228, 106, 49, 25);
 		ventana.getContentPane().add(puertoField);
+		
+		lblError = new JLabel("Error");
+		lblError.setVisible(false);
+		lblError.setForeground(Color.RED);
+		lblError.setBounds(24, 276, 265, 15);
+		ventana.getContentPane().add(lblError);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(GIniciarSesion.class.getResource("/res/Hezkuntza.jpg")));
+		lblNewLabel.setBounds(212, 12, 136, 55);
+		ventana.getContentPane().add(lblNewLabel);
 	}
 }

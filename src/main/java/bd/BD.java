@@ -4,41 +4,70 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexion {
+import app.Main;
+
+public class BD {
 
 	public Connection cn;
 	
-	public Conexion()
+	private String server;
+	private String user;
+	private String pass;
+	private String port;
+	
+	
+	public BD()
 	{
 		
 	}
 	
-	public void Conectar(String server, String user, String pass)
-	{
-		try {
-		    Class.forName("com.mysql.jdbc.Driver");
-		  //Connection cn = DriverManager.getConnection("jdbc:mysql://servidor_bd:puerto/nombre_bd", "usuario", "contrase馻");
-		    String dirbd = "jdbc:mysql://" + server +":3306/Elorrieta";
-		    MostrarConsola("Intentando conectar a la base de datos: " + dirbd);
-		    cn = DriverManager.getConnection(dirbd, user, pass);
-		    MostrarConsola("onexi髇 exitosa!");
-		} catch (ClassNotFoundException ex) {
-		    MostrarError("No se encontro el Driver MySQL para JDBC.");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			MostrarError("No se puede conectar a la base de datos CodErr: " + e.getErrorCode());
-		}
+	public void EstablecerDatos(String server, String user, String pass, String port) {
+		this.server=server;
+		this.user=user;
+		this.pass=pass;
+		this.port=port;
 	}
 	
+	public int Conectar()
+	{
+		if(server==null || user==null || pass==null || port==null)
+		{
+			Main.vista.MostrarIniciarSesion();
+		}
+		else
+		{
+			try {
+			    Class.forName("com.mysql.jdbc.Driver");
+			  //Connection cn = DriverManager.getConnection("jdbc:mysql://servidor_bd:puerto/nombre_bd", "usuario", "contrase锟絘");
+			    String dirbd = "jdbc:mysql://" + server +":"+ port + "/Elorrieta";
+			    MostrarConsola("Intentando conectar a la base de datos: " + dirbd);
+			    cn = DriverManager.getConnection(dirbd, user, pass);
+			    MostrarConsola("隆Conexi贸n exitosa!");
+			    return 0;
+			} catch (ClassNotFoundException ex) {
+			    MostrarError("No se encontro el Driver MySQL para JDBC.");
+			    return 2;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				MostrarError("No se puede conectar a la base de datos CodErr: (" + e.getErrorCode() + ") " + e.getMessage());
+				if(e.getErrorCode()==0)
+					return 3;
+				else
+					return 1;
+			}
+		}
+		return -1;
+	}
+		
 	
 	private void MostrarConsola(String mensaje)
 	{
-		System.out.println("[Info](Conexi髇 BD): " + mensaje);
+		System.out.println("[Info](Conexi贸n BD): " + mensaje);
 	}
 	
 	private void MostrarError(String mensaje)
 	{
-		System.err.println("[Error](Conexi髇 BD): " + mensaje);
+		System.err.println("[Error](Conexi贸n BD): " + mensaje);
 	}
 
 	public void CerrarConexion() {
@@ -47,6 +76,9 @@ public class Conexion {
 			cn.close();
 		} catch (SQLException e) {
 			MostrarError("No se puede cerrar la conexion a la base de datos CodErr: " + e.getErrorCode());
-		}		
+		} catch (NullPointerException e) {
+			MostrarConsola("La conexi贸n ya estaba cerrada");
+		}
 	}
+	
 }

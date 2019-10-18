@@ -1,21 +1,19 @@
 package app;
 
-import bd.Conexion;
+import bd.BD;
 import vista.Vista;
 
 public class Main {
 	
-	public static Conexion conexion;
+	public static BD bd;
 	public static Vista vista;
 
 	public static void main(String[] args) {
 		
 		MostrarPantalla("Iniciando entorno grafico");
 		vista = new Vista();
-		vista.MostrarIniciarSesion();
-		MostrarPantalla("Iniciando conexcion de la base de datos");
-		conexion = new Conexion();
-
+		bd = new BD();
+		bd.Conectar();
 	}
 	
 	private static void MostrarPantalla(String mensaje)
@@ -27,7 +25,7 @@ public class Main {
 	{
 		MostrarPantalla("Orden de cierre recivida");
 		vista.CerrarVentanas();
-		conexion.CerrarConexion();
+		bd.CerrarConexion();
 		MostrarPantalla("Matando proceso principal");
 		System.exit(0);
 	}

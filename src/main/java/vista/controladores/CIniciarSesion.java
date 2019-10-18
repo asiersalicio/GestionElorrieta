@@ -8,6 +8,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -112,7 +114,7 @@ public class CIniciarSesion extends GIniciarSesion{
 	    ventana.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-            	MostrarMensaje("Cerrando aplicación");
+            	MostrarMensaje("Cerrando aplicaciï¿½n");
 				CerrarAplicacion();
             }
         });
@@ -135,7 +137,25 @@ public class CIniciarSesion extends GIniciarSesion{
 	{
 		if(posibleIniciar)
 		{
-			conexion.Conectar(serverField.getText(),userField.getText(),passwordField.getText());
+			bd.EstablecerDatos(serverField.getText(),userField.getText(), new String(passwordField.getPassword()), puertoField.getText());
+			switch(bd.Conectar())
+			{
+			case 0: 
+				ventana.dispose();
+				break;
+			case 1: 
+				lblError.setText("Usuario o contraseÃ±a incorrecta");
+				lblError.setVisible(true);
+				break;
+			case 2:
+				JOptionPane.showMessageDialog(null, "Error fatal!!!! ESO POR NO HACER LOS TESTS!!!!");
+				break;
+			case 3:
+				lblError.setText("Servidor no encontrado");
+				lblError.setVisible(true);
+				break;
+			}
+
 		}
 	}
 	
