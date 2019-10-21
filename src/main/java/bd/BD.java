@@ -82,25 +82,30 @@ public class BD {
 	
 	public void Prueba()
 	{
-		PreparedStatement ps;
 		
-		ResultSet resultado=Llamada("select nombre from Empleado;");
+		String[] prueba={"nombre"};
+		ResultSet resultado=Llamada("select ? from Empleado;", prueba);
 		try {
 			resultado.next();
-			System.out.println(resultado.getString(1));
+			System.out.println(resultado.getString("nombre"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		CerrarConexion();
 		
 	}
 		
-	public ResultSet Llamada(String query)
+	public ResultSet Llamada(String query, String[] setStrings)
 	{
 		ResultSet rs = null;
 		try {
 			Conectar();
 			PreparedStatement pstatment = cn.prepareStatement(query);
+			for(int i=0;i<setStrings.length;i++)
+			{
+				pstatment.setString(i+1, setStrings[i]);
+			}
 		    rs = pstatment.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
