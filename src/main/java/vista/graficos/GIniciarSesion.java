@@ -19,11 +19,11 @@ public class GIniciarSesion extends Vista {
 	public JLabel lblUsuario;
 	public JTextField userField;
 	public JLabel lblContrasea;
-	public JPasswordField passwordField;
 	public JTextField serverField;
 	public JButton btnIniciar;
 	public JTextField puertoField;
 	public JLabel lblError;
+	public JPasswordField passwordField;
 	
 	public GIniciarSesion()
 	{
@@ -69,7 +69,7 @@ public class GIniciarSesion extends Vista {
 		lblContrasea.setBounds(91, 209, 215, 25);
 		ventana.getContentPane().add(lblContrasea);
 		
-		passwordField = new JPasswordField();
+		passwordField = new JPasswordField("");
 		passwordField.setToolTipText("Contrase\u00F1a");
 		passwordField.setBounds(91, 241, 186, 25);
 		ventana.getContentPane().add(passwordField);
@@ -80,7 +80,6 @@ public class GIniciarSesion extends Vista {
 		ventana.getContentPane().add(btnIniciar);
 		
 		puertoField = new JTextField();
-		puertoField.setText("3306");
 		puertoField.setToolTipText("Puerto");
 		puertoField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		puertoField.setColumns(10);

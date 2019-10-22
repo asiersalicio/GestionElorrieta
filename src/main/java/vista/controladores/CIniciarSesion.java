@@ -127,6 +127,16 @@ public class CIniciarSesion extends GIniciarSesion{
 	
 	public void Mostrar()
 	{
+		serverField.setText(bd.server);
+		userField.setText(bd.user);
+		if(bd.port==null)
+		{
+			puertoField.setText("3306");
+		}
+		else
+		{
+			puertoField.setText(bd.port);
+		}
 		ventana.setVisible(true);
 	}
 	
@@ -144,7 +154,6 @@ public class CIniciarSesion extends GIniciarSesion{
 			{
 			case 0: 
 				ventana.dispose();
-				Main.bd.Prueba();
 				break;
 			case 1: 
 				lblError.setText("Usuario o contraseña incorrecta");

@@ -27,19 +27,17 @@ import java.util.Calendar;
 
 import app.Main;
 
-public class BD {
+public class BD extends Main {
 
 	public Connection cn;
 	
-	private String server;
-	private String user;
+	public String server;
+	public String user;
 	private String pass;
-	private String port;
-	
+	public String port;
 	
 	public BD()
 	{
-		
 	}
 	
 	public void EstablecerDatos(String server, String user, String pass, String port) {
@@ -49,11 +47,22 @@ public class BD {
 		this.port=port;
 	}
 	
+	public void EstablecerDatos(String[] datosInicioSesion) {
+		try{
+			EstablecerDatos(datosInicioSesion[0], datosInicioSesion[1], null, datosInicioSesion[2]);
+		}
+		catch (ArrayIndexOutOfBoundsException ex)
+		{
+			MostrarError("Formato de archivo de 'Datos.dat' incorrecto, ignorando archivo");
+			EstablecerDatos(null, null, null, null);
+		}
+	}
+	
 	public int Conectar()
 	{
 		if(server==null || user==null || pass==null || port==null)
 		{
-			Main.vista.MostrarIniciarSesion();
+			vista.MostrarIniciarSesion();
 		}
 		else
 		{
@@ -64,12 +73,12 @@ public class BD {
 			    MostrarConsola("Intentando conectar a la base de datos: " + dirbd);
 			    cn = DriverManager.getConnection(dirbd, user, pass);
 			    MostrarConsola("¡Conexión exitosa!");
+			    es.interprete.GuardarDatosInicioSesion();
 			    return 0;
 			} catch (ClassNotFoundException ex) {
 			    MostrarError("No se encontro el Driver MySQL para JDBC.");
 			    return 2;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				MostrarError("No se puede conectar a la base de datos CodErr: (" + e.getErrorCode() + ") " + e.getMessage());
 				if(e.getErrorCode()==0)
 					return 3;
@@ -78,22 +87,6 @@ public class BD {
 			}
 		}
 		return -1;
-	}
-	
-	public void Prueba()
-	{
-		
-		String[] prueba={"nombre"};
-		ResultSet resultado=Llamada("select ? from Empleado;", prueba);
-		try {
-			resultado.next();
-			System.out.println(resultado.getString("nombre"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		CerrarConexion();
-		
 	}
 		
 	public ResultSet Llamada(String query, String[] setStrings)
@@ -133,5 +126,7 @@ public class BD {
 			MostrarConsola("La conexión ya estaba cerrada");
 		}
 	}
+
+	
 	
 }
