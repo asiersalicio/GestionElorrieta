@@ -1,5 +1,6 @@
 package vista.graficos;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -9,8 +10,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import vista.Vista;
-import java.awt.Color;
-import javax.swing.ImageIcon;
 
 public class GIniciarSesion extends Vista {
 	

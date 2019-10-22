@@ -146,9 +146,9 @@ public class Interprete extends Main {
 		}
 	}
 	
-	public boolean LeerArchivoGraficoPorExtension(File archivo)
+	/*public boolean LeerArchivoGraficoPorExtension(File archivo)
 	{
-		/*if(archivo.getPath().endsWith(".txt"))
+		if(archivo.getPath().endsWith(".txt"))
 		{
 			System.out.println("[INFO] .txt detectado");
 			vista.editorTexto = new EditorTexto();
@@ -175,9 +175,9 @@ public class Interprete extends Main {
 		else
 		{
 			return false;
-		}*/
+		}
 		return (Boolean) null;
-	}
+	}*/
 	
 	
 	public File GuardarArrayListEnCSV(File archivo, ArrayList<ArrayList<String>> arrayList, String separador)

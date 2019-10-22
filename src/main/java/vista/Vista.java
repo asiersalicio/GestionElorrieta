@@ -2,10 +2,12 @@ package vista;
 
 import app.Main;
 import vista.controladores.CIniciarSesion;
+import vista.controladores.CMenu;
 
 public class Vista extends Main {
 	
 	public CIniciarSesion iniciarSesion;
+	public CMenu menu;
 	
 	public Vista()
 	{
@@ -19,6 +21,13 @@ public class Vista extends Main {
 		iniciarSesion.Mostrar();
 	}
 	
+	public void MostrarMenu()
+	{
+		MostrarMensaje("Iniciando ventana iniciar sesión");
+		menu = new CMenu();
+		menu.Mostrar();
+	}
+	
 	private void MostrarMensaje(String mensaje)
 	{
 		System.out.println("[Info](Vista): " + mensaje);
@@ -27,8 +36,8 @@ public class Vista extends Main {
 	public void CerrarVentanas()
 	{
 		MostrarMensaje("Cerrando ventanas");
-		iniciarSesion.ventana.dispose();
 		iniciarSesion=null;
+		menu=null;
 	}
 
 }

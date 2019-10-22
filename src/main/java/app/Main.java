@@ -21,10 +21,7 @@ public class Main {
 		bd = new BD();
 		bd.EstablecerDatos(es.interprete.CargarDatosInicioSesion());
 		bd.Conectar();
-		
-		
-		
-		
+		vista.MostrarMenu();
 	}
 	
 	
