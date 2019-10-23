@@ -25,7 +25,7 @@ import javax.swing.JCheckBox;
 public class GMenu extends Vista {
 	
 	public JDialog ventana;
-	public JPanel panel,panel_1,panel_2,panel_3,panel_4;
+	public JPanel panel_1,panel_3,panel_4;
 	public JTabbedPane tabbedPane;
 	public JButton btnNewButton;
 	
@@ -40,26 +40,17 @@ public class GMenu extends Vista {
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		ventana.getContentPane().add(tabbedPane, BorderLayout.CENTER);
-		//TODO icono
-		panel = new JPanel();
-		tabbedPane.addTab("Principal", null, panel, null);
 		
-		panel_2 = new JPanel();
-		ImageIcon escritorio = new ImageIcon(GMenu.class.getResource("/res/escritorio.jpg"));
-		tabbedPane.addTab("Departamentos", escritorio, panel_2, null);
-		
-		panel_3 = new JPanel();
-		ImageIcon empleados = new ImageIcon(GMenu.class.getResource("/res/empleados.jpg"));
-		tabbedPane.addTab("Empleados", empleados, panel_3, null);
-		
-		panel_4 = new JPanel();
-		ImageIcon informes = new ImageIcon(GMenu.class.getResource("/res/informes.jpg"));
-		tabbedPane.addTab("Informes", informes, panel_4, null);
 		
 		panel_1 = new JPanel();
 		ventana.getContentPane().add(panel_1, BorderLayout.SOUTH);
 		
 		btnNewButton = new JButton("Cerrar Sesion y Salir");
 		panel_1.add(btnNewButton);
+		
+		new GMenuPrincipal(tabbedPane);
+		new GMenuDepartamentos(tabbedPane);
+		new GMenuEmpleados(tabbedPane);
+		new GMenuInformes(tabbedPane);
 	}
 }
