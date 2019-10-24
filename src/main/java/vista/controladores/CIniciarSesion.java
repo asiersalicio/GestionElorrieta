@@ -155,7 +155,7 @@ public class CIniciarSesion extends GIniciarSesion{
 				lblError.setVisible(true);
 				break;
 			case 2:
-				JOptionPane.showMessageDialog(null, "Error fatal!!!! ESO POR NO HACER LOS TESTS!!!!");
+				JOptionPane.showMessageDialog(null, "Error en la BD!");
 				break;
 			case 3:
 				lblError.setText("Servidor no encontrado");

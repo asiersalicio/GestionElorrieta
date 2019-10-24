@@ -48,9 +48,5 @@ public class GMenu extends Vista {
 		btnNewButton = new JButton("Cerrar Sesion y Salir");
 		panel_1.add(btnNewButton);
 		
-		new GMenuPrincipal(tabbedPane);
-		new GMenuDepartamentos(tabbedPane);
-		new GMenuEmpleados(tabbedPane);
-		new GMenuInformes(tabbedPane);
 	}
 }

@@ -20,6 +20,5 @@ public class GPestana extends Vista {
 		this.icono=icono;
 		panel = new JPanel();
 		tabbedPane.addTab(nombre, icono, panel, null);
-		
 	}
 }
