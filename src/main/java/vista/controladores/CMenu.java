@@ -12,10 +12,12 @@ import vista.graficos.GMenuDepartamentos;
 import vista.graficos.GMenuEmpleados;
 import vista.graficos.GMenuInformes;
 import vista.graficos.GMenuPrincipal;
+import vista.graficos.GPestana;
 
 public class CMenu extends GMenu {
 
-
+	public ArrayList<GPestana> pestanas = new ArrayList<GPestana>();
+	
 	public CMenu()
 	{
 		AnadirPestanas();
@@ -23,10 +25,10 @@ public class CMenu extends GMenu {
 	}
 	
 	private void AnadirPestanas() {
-		new CMenuPrincipal(tabbedPane);
-		new CMenuDepartamentos(tabbedPane);
-		new CMenuEmpleados(tabbedPane);
-		new CMenuInformes(tabbedPane);
+		pestanas.add(new CMenuPrincipal(tabbedPane));
+		pestanas.add(new CMenuDepartamentos(tabbedPane));
+		pestanas.add(new CMenuEmpleados(tabbedPane));
+		pestanas.add(new CMenuInformes(tabbedPane));
 	}
 
 	private void AnadirListeners() {

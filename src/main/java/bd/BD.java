@@ -11,6 +11,7 @@ import app.Main;
 public class BD extends Main {
 
 	public Connection cn;
+	public Llamadas llamadas;
 	
 	public String server;
 	public String user;
@@ -19,6 +20,7 @@ public class BD extends Main {
 	
 	public BD()
 	{
+		llamadas = new Llamadas();
 	}
 	
 	public void EstablecerDatos(String server, String user, String pass, String port) {
