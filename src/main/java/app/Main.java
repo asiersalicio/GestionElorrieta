@@ -7,6 +7,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import Dialogos.Consola;
 import bd.BD;
 import es.Es;
 import obj.CeldaTitulo;
@@ -18,6 +19,7 @@ public class Main {
 	public static BD bd;
 	public static Vista vista;
 	public static Es es;
+	public static Consola consola;
 
 	public static void main(String[] args) throws IOException {
 		Inicializar();
@@ -25,6 +27,7 @@ public class Main {
 	
 	public static void Inicializar()
 	{
+		consola=new Consola();		
 		MostrarPantalla("Iniciando modulo grafico");
 		vista = new Vista();
 		MostrarPantalla("Iniciando modulo E/S");

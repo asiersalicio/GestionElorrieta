@@ -7,6 +7,7 @@ import java.awt.event.AdjustmentListener;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -106,7 +107,16 @@ public class CEditorTablas extends GEditorTablas {
 	private void BotonAceptarPulsado()
 	{
 		ArrayList<ArrayList<String>> celdas = LeerCeldas();
-		bd.llamadas.InsertarPuestosTextoPlano(celdas);
+		consola.ImprimirArray2D(celdas);
+		if(bd.llamadas.InsertarPuestosTextoPlano(celdas))
+		{
+			
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
+		}
+		bd.CerrarConexion();
 	}
 
 	public void Mostrar()
@@ -199,6 +209,7 @@ public class CEditorTablas extends GEditorTablas {
 				}
 			}
 		}
+		textoAGuardar.remove(0);
 		return textoAGuardar;
 	}
 		

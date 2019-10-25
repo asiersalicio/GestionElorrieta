@@ -6,12 +6,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 
 import app.Main;
 
 public class BD extends Main {
 
 	public Connection cn;
+	public long ultimaConexion = 0;
 	public Llamadas llamadas;
 	
 	public String server;
@@ -44,7 +46,7 @@ public class BD extends Main {
 	
 	public int Conectar()
 	{
-		if(server==null || user==null || pass==null || port==null)
+		if((server==null || user==null || pass==null || port==null))
 		{
 			vista.MostrarIniciarSesion();
 		}
@@ -92,7 +94,6 @@ public class BD extends Main {
 
 	public int LlamadaInsert(String query, String[] setStrings)
 	{
-		int rs = 0;
 		try {
 			Conectar();
 			PreparedStatement pstatment = cn.prepareStatement(query);
@@ -100,11 +101,12 @@ public class BD extends Main {
 			{
 				pstatment.setString(i+1, setStrings[i]);
 			}
-		    rs = pstatment.executeUpdate();
+		    pstatment.executeUpdate();
+		    return 0;
 		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return rs;
+			MostrarError("Formato incorrecto: " + e.getMessage());
+			return 1;
+		} 
 	}
 	
 	private void MostrarConsola(String mensaje)
