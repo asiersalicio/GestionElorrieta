@@ -15,7 +15,7 @@ public class CMenuPrincipal extends GMenuPrincipal {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				bd.llamadas.ComprobarVacio();
+				bd.ComprobarVacio();
 				
 			}
 		});

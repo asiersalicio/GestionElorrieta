@@ -2,8 +2,9 @@ package bd;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+import com.mysql.jdbc.PreparedStatement;
 
 import app.Main;
 
@@ -29,24 +30,22 @@ public class Llamadas extends Main {
 
 	}
 	
-	public void ComprobarVacio()
+	public void InsertarPuestosTextoPlano(ArrayList<ArrayList<String>> puestos)
 	{
-
-		String[] prueba = {};
-		try {
-		ResultSet resultado = bd.Llamada("select * from empleado;", prueba);
 		
-			if (resultado.next()) {
-				System.out.println("Existe");
-			}
-		} catch (com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException e) {
-			System.out.println("No existe");;
-		} catch (SQLException e) {
-			System.out.println("No existe");
-		}
-		bd.CerrarConexion();
+		// the mysql insert statement
+	      String query = "insert into PUESTOS (COD_PUESTO, NOMBRE) values (?, ?);";
 
+	      for(int y=0;y<puestos.size();y++)
+	      {
+	    	  String[] setStrings = {puestos.get(y).get(0),puestos.get(y).get(1)};
+	    	  bd.LlamadaInsert(query, setStrings);
+	      }
+	      
+		
 	}
+	
+	
 	
 	
 }

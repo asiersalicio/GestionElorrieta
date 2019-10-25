@@ -1,6 +1,7 @@
 package bd;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -88,6 +89,23 @@ public class BD extends Main {
 		}
 		return rs;
 	}
+
+	public int LlamadaInsert(String query, String[] setStrings)
+	{
+		int rs = 0;
+		try {
+			Conectar();
+			PreparedStatement pstatment = cn.prepareStatement(query);
+			for(int i=0;i<setStrings.length;i++)
+			{
+				pstatment.setString(i+1, setStrings[i]);
+			}
+		    rs = pstatment.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 	
 	private void MostrarConsola(String mensaje)
 	{
@@ -108,6 +126,26 @@ public class BD extends Main {
 		} catch (NullPointerException e) {
 			MostrarConsola("La conexión ya estaba cerrada");
 		}
+	}
+	
+	public boolean ComprobarVacio()
+	{
+		ResultSet tables = null;
+		DatabaseMetaData dbm = null;
+		try {
+			dbm = cn.getMetaData();
+			tables = dbm.getTables(null, null, "aaaaDEPARTAMENTO", null);
+			if (tables.next()) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+
 	}
 
 	
