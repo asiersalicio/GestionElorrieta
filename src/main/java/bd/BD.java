@@ -101,7 +101,8 @@ public class BD extends Main {
 			{
 				pstatment.setString(i+1, setStrings[i]);
 			}
-		    pstatment.executeUpdate();
+		    System.out.println(pstatment.toString());
+			pstatment.executeUpdate();
 		    return 0;
 		} catch (SQLException e) {
 			MostrarError("Formato incorrecto: " + e.getMessage());
@@ -151,7 +152,7 @@ public class BD extends Main {
 
 	}
 	
-	public boolean ComprobarVacio(String tabla)
+	public boolean ComprobarRelleno(String tabla)
 	{
 		ResultSet rs = null;
 		try {

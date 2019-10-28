@@ -50,17 +50,17 @@ public class Main {
 	{
 		if(bd.ComprobarTablaExistente("PUESTOS")==true&&bd.ComprobarTablaExistente("DEPARTAMENTO")==true&&bd.ComprobarTablaExistente("EMPLEADO")==true)
 		{
-			if(!bd.ComprobarVacio("PUESTOS"))
+			if(!bd.ComprobarRelleno("PUESTOS"))
 			{
 				JOptionPane.showMessageDialog(null, "No existen datos en la tabla puestos, es necesario importar datos.");
 				ImportarPuestos();
 			}
-			if(bd.ComprobarVacio("DEPARTAMENTO"))
+			if(!bd.ComprobarRelleno("DEPARTAMENTO"))
 			{
 				JOptionPane.showMessageDialog(null, "No existen datos en la tabla departamentos, es necesario importar datos.");
 				ImportarDepartamentos();
 			}
-			if(bd.ComprobarVacio("EMPLEADO"))
+			if(!bd.ComprobarRelleno("EMPLEADO"))
 			{
 				JOptionPane.showMessageDialog(null, "No existen datos en la tabla empleados, es necesario importar datos.");
 				ImportarDepartamentos();
@@ -96,7 +96,7 @@ public class Main {
 	{
 		vista.CrearEditorTablas();
 		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
-		String[] titulosCeldas= {"Cod departamento","Nom departamento"};
+		String[] titulosCeldas= {"Cod departamento","Nom departamento","Edificio","Ubicación"};
 		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
 		if(celdasPuestos!=null)
 		{
