@@ -130,13 +130,14 @@ public class BD extends Main {
 		}
 	}
 	
-	public boolean ComprobarVacio()
+	public boolean ComprobarTablaExistente(String tabla)
 	{
 		ResultSet tables = null;
 		DatabaseMetaData dbm = null;
 		try {
+			Conectar();
 			dbm = cn.getMetaData();
-			tables = dbm.getTables(null, null, "aaaaDEPARTAMENTO", null);
+			tables = dbm.getTables(null, null, tabla, null);
 			if (tables.next()) {
 				return true;
 			}
@@ -148,6 +149,23 @@ public class BD extends Main {
 		}
 		return false;
 
+	}
+	
+	public boolean ComprobarVacio(String tabla)
+	{
+		ResultSet rs = null;
+		try {
+			Conectar();
+			PreparedStatement pstatment = cn.prepareStatement("SELECT * FROM " + tabla);
+		    rs = pstatment.executeQuery();
+		    if(rs.next())
+		    	return true;
+		    else
+		    	return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	

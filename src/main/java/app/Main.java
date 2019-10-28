@@ -2,6 +2,7 @@ package app;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -38,28 +39,80 @@ public class Main {
 		
 		bd.Conectar(); //Espera a que se conecte
 		
-		if(!bd.ComprobarVacio())
-		{
-			JOptionPane.showMessageDialog(null, "No existen tablas en la base de datos, es necesario importar datos.");
-			ImportarDatos();
-		}
-		else
-		{
-			vista.MostrarMenu();
-		}
+		vista.MostrarMenu();
+
+		ImportarDatos();
 		
 		
 	}
 	
 	private static void ImportarDatos()
 	{
+		if(bd.ComprobarTablaExistente("PUESTOS")==true&&bd.ComprobarTablaExistente("DEPARTAMENTO")==true&&bd.ComprobarTablaExistente("EMPLEADO")==true)
+		{
+			if(!bd.ComprobarVacio("PUESTOS"))
+			{
+				JOptionPane.showMessageDialog(null, "No existen datos en la tabla puestos, es necesario importar datos.");
+				ImportarPuestos();
+			}
+			if(bd.ComprobarVacio("DEPARTAMENTO"))
+			{
+				JOptionPane.showMessageDialog(null, "No existen datos en la tabla departamentos, es necesario importar datos.");
+				ImportarDepartamentos();
+			}
+			if(bd.ComprobarVacio("EMPLEADO"))
+			{
+				JOptionPane.showMessageDialog(null, "No existen datos en la tabla empleados, es necesario importar datos.");
+				ImportarDepartamentos();
+			}
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "La base de datos no contiene las tablas necesarias, crea dichas tablas para utilizar la aplicación");
+			CerrarAplicacion();
+		}
+		
+		
+	}
+	
+	private static void ImportarPuestos()
+	{
 		vista.CrearEditorTablas();
 		File puestos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de puestos", "csv"));
 		String[] titulosCeldas= {"Cod puesto","Nom Puesto"};
-		vista.editorTablas.RellenarCeldas(es.interprete.LectorArchivos2D(puestos, ";"), puestos, titulosCeldas);
-		vista.editorTablas.Mostrar();
+		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(puestos, ";");
+		if(celdasPuestos!=null)
+		{
+			vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas);
+			vista.editorTablas.Mostrar();
+		}
+		else
+		{
+			CerrarAplicacion();
+		}
 	}
 	
+	private static void ImportarDepartamentos()
+	{
+		vista.CrearEditorTablas();
+		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+		String[] titulosCeldas= {"Cod departamento","Nom departamento"};
+		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+		if(celdasPuestos!=null)
+		{
+			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas);
+			vista.editorTablas.Mostrar();
+		}
+		else
+		{
+			CerrarAplicacion();
+		}
+	}
+	
+	private static void ImportarEmpleados()
+	{
+		
+	}
 	
 	private static void MostrarPantalla(String mensaje)
 	{

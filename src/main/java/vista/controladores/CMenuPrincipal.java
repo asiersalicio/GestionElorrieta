@@ -11,14 +11,7 @@ public class CMenuPrincipal extends GMenuPrincipal {
 
 	public CMenuPrincipal(JTabbedPane tabbedPane) {
 		super(tabbedPane);
-		boton.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				bd.ComprobarVacio();
-				
-			}
-		});
+		
 	}
 
 }

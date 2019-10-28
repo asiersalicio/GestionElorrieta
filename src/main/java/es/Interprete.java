@@ -81,9 +81,13 @@ public class Interprete extends Main {
 	            }
 	            lectorArchivos.close();
 	        }
-	        catch (Exception e) {
-	            e.printStackTrace();
+	        catch (NullPointerException  e) {
+	            return null;
 	        }
+			catch(IOException e2)
+			{
+				e2.printStackTrace();	
+			}
 			
 		   return tabla;
 	}

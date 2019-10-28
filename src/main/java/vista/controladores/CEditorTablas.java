@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -71,6 +73,13 @@ public class CEditorTablas extends GEditorTablas {
 			}
 		});
 		
+		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+		    @Override
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		        CerrarAplicacion();
+		    }
+		});
+		
 //		btnGuardar.addActionListener(new ActionListener() {
 //			
 //			@Override
@@ -121,8 +130,8 @@ public class CEditorTablas extends GEditorTablas {
 
 	public void Mostrar()
 	{
-		frame.setVisible(true);
 		ventanaVisible=true;
+		frame.setVisible(true);
 	}
 	
 	public void RellenarCeldas(ArrayList<ArrayList<String>> arrayList, File archivo, String[] celdasTitulos)
