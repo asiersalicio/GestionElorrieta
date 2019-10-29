@@ -50,7 +50,7 @@ public class BD extends Main {
 		{
 			vista.MostrarIniciarSesion();
 		}
-		else
+		else if(cn==null)
 		{
 			try {
 			    Class.forName("com.mysql.jdbc.Driver");
@@ -58,6 +58,7 @@ public class BD extends Main {
 			    String dirbd = "jdbc:mysql://" + server +":"+ port + "/Elorrieta";
 			    MostrarConsola("Intentando conectar a la base de datos: " + dirbd);
 			    cn = DriverManager.getConnection(dirbd, user, pass);
+			    cn.setAutoCommit(false);
 			    MostrarConsola("¡Conexión exitosa!");
 			    es.interprete.GuardarDatosInicioSesion();
 			    return 0;
@@ -71,6 +72,16 @@ public class BD extends Main {
 				else
 					return 1;
 			}
+		}
+		else if(cn!=null)
+		{
+			try {
+				cn.setAutoCommit(false);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return 0;
 		}
 		return -1;
 	}
@@ -124,6 +135,7 @@ public class BD extends Main {
 		try {
 			MostrarConsola("Cerrando la conexion");
 			cn.close();
+			cn=null;
 		} catch (SQLException e) {
 			MostrarError("No se puede cerrar la conexion a la base de datos CodErr: " + e.getErrorCode());
 		} catch (NullPointerException e) {

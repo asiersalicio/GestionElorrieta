@@ -9,9 +9,11 @@ import java.awt.event.WindowListener;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import obj.Celda;
 import obj.CeldaDatos;
@@ -23,6 +25,8 @@ public class CEditorTablas extends GEditorTablas {
 	public boolean cambios = false;
 	private File archivo=null;
 	public boolean ratonEncima=false;
+	private String tipoInsert;
+	private String[] celdasTitulos;
 	
 	public CEditorTablas()
 	{
@@ -69,7 +73,7 @@ public class CEditorTablas extends GEditorTablas {
 		
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				BotonAceptarPulsado();
+				//BotonAceptarPulsado();
 			}
 		});
 		
@@ -113,20 +117,26 @@ public class CEditorTablas extends GEditorTablas {
 //		});
 	}
 	
-	private void BotonAceptarPulsado()
-	{
-		ArrayList<ArrayList<String>> celdas = LeerCeldas();
-		consola.ImprimirArray2D(celdas);
-		if(bd.llamadas.InsertarPuestosTextoPlano(celdas))
-		{
-			
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(null, "Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
-		}
-		bd.CerrarConexion();
-	}
+//	private void BotonAceptarPulsado()
+//	{
+//		ArrayList<ArrayList<String>> celdas = LeerCeldas();
+//		consola.ImprimirArray2D(celdas);
+//		if(bd.llamadas.InsertarDatos(celdas, tipoInsert))
+//		{
+//			frame.dispose();
+//			bd.CerrarConexion();
+//		}
+//		else
+//		{
+//			bd.CerrarConexion();
+//			JOptionPane.showMessageDialog(null, "Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
+//			BorrarCeldas();
+//			File archivo = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+//			ArrayList<ArrayList<String>> celdas1 = es.interprete.LectorArchivos2D(archivo, ";");
+//			RellenarCeldas(celdas1, archivo, celdasTitulos, tipoInsert);
+//		}
+//		
+//	}
 
 	public void Mostrar()
 	{
@@ -134,8 +144,10 @@ public class CEditorTablas extends GEditorTablas {
 		frame.setVisible(true);
 	}
 	
-	public void RellenarCeldas(ArrayList<ArrayList<String>> arrayList, File archivo, String[] celdasTitulos)
+	public void RellenarCeldas(ArrayList<ArrayList<String>> arrayList, File archivo, String[] celdasTitulos, String tipoInsert)
 	{
+		this.tipoInsert=tipoInsert;
+		this.celdasTitulos=celdasTitulos;
 		frame.setTitle(archivo.getName());
 		celdas = new ArrayList<ArrayList<Celda>>();
 		scrollVertical.setMaximum(arrayList.size());
@@ -186,6 +198,24 @@ public class CEditorTablas extends GEditorTablas {
 					for(int x=0;x<celdas.get(y).size();x++)
 					{					
 						celdas.get(y).get(x).ModoEdicion(ModoEdcion);;
+					}
+				}
+				catch(NullPointerException ex) {}
+			}
+		}
+	}
+	
+	private void BorrarCeldas()
+	{
+		if(ventanaVisible)
+		{
+			for(int y=0;y<celdas.size();y++)
+			{
+				try 
+				{
+					for(int x=0;x<celdas.get(y).size();x++)
+					{					
+						celdas.get(y).get(x).panel.setVisible(false);
 					}
 				}
 				catch(NullPointerException ex) {}

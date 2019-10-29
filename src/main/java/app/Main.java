@@ -46,7 +46,7 @@ public class Main {
 		
 	}
 	
-	private static void ImportarDatos()
+	public static void ImportarDatos()
 	{
 		if(bd.ComprobarTablaExistente("PUESTOS")==true&&bd.ComprobarTablaExistente("DEPARTAMENTO")==true&&bd.ComprobarTablaExistente("EMPLEADO")==true)
 		{
@@ -63,7 +63,7 @@ public class Main {
 			if(!bd.ComprobarRelleno("EMPLEADO"))
 			{
 				JOptionPane.showMessageDialog(null, "No existen datos en la tabla empleados, es necesario importar datos.");
-				ImportarDepartamentos();
+				ImportarEmpleados();
 			}
 		}
 		else
@@ -83,7 +83,7 @@ public class Main {
 		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(puestos, ";");
 		if(celdasPuestos!=null)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas);
+			vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas, "PUESTOS");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -100,7 +100,7 @@ public class Main {
 		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
 		if(celdasPuestos!=null)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas);
+			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -111,7 +111,19 @@ public class Main {
 	
 	private static void ImportarEmpleados()
 	{
-		
+		vista.CrearEditorTablas();
+		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+		String[] titulosCeldas= {"COD_EMPLE","NOMBRE","DEPARTAMENTO","SUELDO","JEFE","SU_JEFE","PUESTO"};
+		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+		if(celdasPuestos!=null)
+		{
+			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
+			vista.editorTablas.Mostrar();
+		}
+		else
+		{
+			CerrarAplicacion();
+		}
 	}
 	
 	private static void MostrarPantalla(String mensaje)
