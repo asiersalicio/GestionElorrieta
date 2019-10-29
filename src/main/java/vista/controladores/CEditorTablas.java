@@ -18,6 +18,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import obj.Celda;
 import obj.CeldaDatos;
 import obj.CeldaTitulo;
+import obj.Puesto;
 import vista.graficos.GEditorTablas;
 
 public class CEditorTablas extends GEditorTablas {
@@ -144,13 +145,13 @@ public class CEditorTablas extends GEditorTablas {
 		frame.setVisible(true);
 	}
 	
-	public void RellenarCeldas(ArrayList<ArrayList<String>> arrayList, File archivo, String[] celdasTitulos, String tipoInsert)
+	public void RellenarCeldas(ArrayList<Puesto> puestos, File archivo, String[] celdasTitulos, String tipoInsert)
 	{
 		this.tipoInsert=tipoInsert;
 		this.celdasTitulos=celdasTitulos;
 		frame.setTitle(archivo.getName());
 		celdas = new ArrayList<ArrayList<Celda>>();
-		scrollVertical.setMaximum(arrayList.size());
+		scrollVertical.setMaximum(puestos.size());
 		frame.setTitle(archivo.getName());
 		int x,y;
 		celdas.add(0, new ArrayList<Celda>());
@@ -158,12 +159,13 @@ public class CEditorTablas extends GEditorTablas {
 		{
 			celdas.get(0).add(x, new CeldaTitulo(panelDatos, x, 0, celdasTitulos[x]));	
 		}
-		for(y=1;y<arrayList.size();y++)
+		for(y=1;y<puestos.size();y++)
 		{
 			celdas.add(y, new ArrayList<Celda>());
-			for(x=0;x<arrayList.get(y).size();x++)
+			String[] arrayRellenar = puestos.get(y).toArray();
+			for(x=0;x<arrayRellenar.length;x++)
 			{
-				celdas.get(y).add(x, new CeldaDatos(frame, panelDatos, x, y, arrayList.get(y).get(x)));
+				celdas.get(y).add(x, new CeldaDatos(frame, panelDatos, x, y, arrayRellenar[x]));
 			}
 			//celdas.get(y).add(x+1, new CeldaAnadir(panelDatos, x+1, y));
 		}

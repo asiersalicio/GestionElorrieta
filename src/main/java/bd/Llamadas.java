@@ -3,6 +3,7 @@ package bd;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -82,7 +83,7 @@ public class Llamadas extends Main {
 		Object tipo = obj.get(0);
 		if(tipo instanceof Puesto)
 		{
-			ArrayList<Puesto> puesto = (ArrayList<Puesto>)(ArrayList<?>) (obj);
+			ArrayList<Puesto> puesto = Main.castArrayList(obj);
 			resul = InsertarPuestos(puesto);
 		}
 		else if(tipo instanceof Departamento)

@@ -11,9 +11,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Dialogos.Consola;
 import bd.BD;
 import es.Es;
-import obj.CeldaTitulo;
+import obj.Puesto;
 import vista.Vista;
-import vista.controladores.CEditorTablas;
 
 public class Main {
 	
@@ -78,12 +77,20 @@ public class Main {
 	private static void ImportarPuestos()
 	{
 		vista.CrearEditorTablas();
-		File puestos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de puestos", "csv"));
+		File filepuestos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de puestos", "csv"));
 		String[] titulosCeldas= {"Cod puesto","Nom Puesto"};
-		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(puestos, ";");
-		if(celdasPuestos!=null)
+		ArrayList<ArrayList<String>> ArrayBidimensionalPuestos = es.interprete.LectorArchivos2D(filepuestos, ";");
+		ArrayList<Puesto> puestos = new ArrayList<Puesto>();
+		for(int i = 0;i<ArrayBidimensionalPuestos.size();i++)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas, "PUESTOS");
+			Puesto puesto = new Puesto(Integer.parseInt(ArrayBidimensionalPuestos.get(i).get(0)), ArrayBidimensionalPuestos.get(i).get(1));
+			puestos.add(puesto);
+		}
+		
+		
+		if(ArrayBidimensionalPuestos!=null)
+		{
+			vista.editorTablas.RellenarCeldas(puestos, filepuestos, titulosCeldas, "PUESTOS");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -100,7 +107,7 @@ public class Main {
 		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
 		if(celdasPuestos!=null)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
+			//vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -117,7 +124,7 @@ public class Main {
 		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
 		if(celdasPuestos!=null)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
+			//vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -138,6 +145,15 @@ public class Main {
 		bd.CerrarConexion();
 		MostrarPantalla("Matando proceso principal");
 		System.exit(0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static <newType, oldType> ArrayList<newType> castArrayList(ArrayList<oldType> list){
+	    ArrayList<newType> newlyCastedArrayList = new ArrayList<newType>();
+	    for(oldType listObject : list){
+	        newlyCastedArrayList.add((newType)listObject);
+	    }
+	    return newlyCastedArrayList;
 	}
 
 }
