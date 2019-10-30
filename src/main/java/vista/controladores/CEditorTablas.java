@@ -4,20 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.File;
 import java.util.ArrayList;
 
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import obj.Celda;
 import obj.CeldaDatos;
 import obj.CeldaTitulo;
+import obj.Departamento;
+import obj.ObjGenerico;
 import obj.Puesto;
 import vista.graficos.GEditorTablas;
 
@@ -145,9 +142,8 @@ public class CEditorTablas extends GEditorTablas {
 		frame.setVisible(true);
 	}
 	
-	public void RellenarCeldas(ArrayList<Puesto> puestos, File archivo, String[] celdasTitulos, String tipoInsert)
+	public void RellenarCeldas(ArrayList<?> puestos, File archivo, String[] celdasTitulos)
 	{
-		this.tipoInsert=tipoInsert;
 		this.celdasTitulos=celdasTitulos;
 		frame.setTitle(archivo.getName());
 		celdas = new ArrayList<ArrayList<Celda>>();
@@ -162,14 +158,15 @@ public class CEditorTablas extends GEditorTablas {
 		for(y=1;y<puestos.size();y++)
 		{
 			celdas.add(y, new ArrayList<Celda>());
-			String[] arrayRellenar = puestos.get(y).toArray();
+			String[] arrayRellenar = ((ObjGenerico) puestos.get(y)).toArray();
 			for(x=0;x<arrayRellenar.length;x++)
 			{
 				celdas.get(y).add(x, new CeldaDatos(frame, panelDatos, x, y, arrayRellenar[x]));
 			}
-			//celdas.get(y).add(x+1, new CeldaAnadir(panelDatos, x+1, y));
 		}
 	}
+	
+
 	
 	private void ActualizarPosCeldas()
 	{
@@ -253,6 +250,9 @@ public class CEditorTablas extends GEditorTablas {
 		textoAGuardar.remove(0);
 		return textoAGuardar;
 	}
+
+
+
 		
 //	private boolean GuardarArchivo()
 //	{

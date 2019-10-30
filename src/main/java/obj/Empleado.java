@@ -66,16 +66,9 @@ public class Empleado extends ObjGenerico {
 		this.puesto = puesto;
 	}
 	
-	public ArrayList<String> toArrayList()
+	public String[] toArray()
 	{
-		ArrayList<String> devolver = new ArrayList<String>();
-		devolver.add(Integer.toString(codEmple));
-		devolver.add(nombre);
-		devolver.add(Integer.toString(departamento));
-		devolver.add(Integer.toString(sueldo));
-		devolver.add(Integer.toString(jefe));
-		devolver.add(Integer.toString(suJefe));
-		devolver.add(Integer.toString(puesto));
+		String[] devolver = {Integer.toString(codEmple),nombre,Integer.toString(departamento),Integer.toString(sueldo),Integer.toString(jefe),Integer.toString(suJefe),Integer.toString(puesto)};
 		return devolver;
 	}
 	

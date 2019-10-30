@@ -11,6 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Dialogos.Consola;
 import bd.BD;
 import es.Es;
+import obj.Departamento;
 import obj.Puesto;
 import vista.Vista;
 
@@ -86,11 +87,10 @@ public class Main {
 			Puesto puesto = new Puesto(Integer.parseInt(ArrayBidimensionalPuestos.get(i).get(0)), ArrayBidimensionalPuestos.get(i).get(1));
 			puestos.add(puesto);
 		}
-		
-		
+
 		if(ArrayBidimensionalPuestos!=null)
 		{
-			vista.editorTablas.RellenarCeldas(puestos, filepuestos, titulosCeldas, "PUESTOS");
+			vista.editorTablas.RellenarCeldas(puestos, filepuestos, titulosCeldas);
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -102,12 +102,19 @@ public class Main {
 	private static void ImportarDepartamentos()
 	{
 		vista.CrearEditorTablas();
-		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+		File fileDeptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
 		String[] titulosCeldas= {"Cod departamento","Nom departamento","Edificio","Ubicación"};
-		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
-		if(celdasPuestos!=null)
+		ArrayList<ArrayList<String>> ArrayBidimensionalDepartamentos = es.interprete.LectorArchivos2D(fileDeptartamentos, ";");
+		ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+		for(int i = 0;i<ArrayBidimensionalDepartamentos.size();i++)
 		{
-			//vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
+			Departamento departamento = new Departamento(Integer.parseInt(ArrayBidimensionalDepartamentos.get(i).get(0)),ArrayBidimensionalDepartamentos.get(i).get(1),Integer.parseInt(ArrayBidimensionalDepartamentos.get(i).get(2)), ArrayBidimensionalDepartamentos.get(i).get(3));
+			departamentos.add(departamento);
+		}
+
+		if(ArrayBidimensionalDepartamentos!=null)
+		{
+			vista.editorTablas.RellenarCeldas(departamentos, fileDeptartamentos, titulosCeldas);
 			vista.editorTablas.Mostrar();
 		}
 		else

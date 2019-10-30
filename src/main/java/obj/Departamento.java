@@ -41,14 +41,9 @@ public class Departamento extends ObjGenerico {
 		this.ubicacion = ubicacion;
 	}
 	
-	public ArrayList<String> toArrayList()
+	public String[] toArrayList()
 	{
-		ArrayList<String> devolver = new ArrayList<String>();
-		devolver.add(Integer.toString(codDepart));
-		devolver.add(Integer.toString(codDepart));
-		devolver.add(nombre);
-		devolver.add(Integer.toString(edificio));
-		devolver.add(ubicacion);
+		String[] devolver = {Integer.toString(codDepart),Integer.toString(codDepart),nombre,Integer.toString(edificio),ubicacion};
 		return devolver;
 	}
 	

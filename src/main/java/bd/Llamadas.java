@@ -3,17 +3,10 @@ package bd;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-
-import com.mysql.jdbc.PreparedStatement;
 
 import app.Main;
 import obj.Departamento;
 import obj.Empleado;
-import obj.ObjGenerico;
 import obj.Puesto;
 
 public class Llamadas extends Main {
@@ -38,16 +31,16 @@ public class Llamadas extends Main {
 
 	}
 	
-	public boolean InsertarPuestos(ArrayList<Puesto> obj)
+	public boolean InsertarPuestos(ArrayList<Puesto> puestos)
 	{
 		
 		  String query = "insert into PUESTOS (COD_PUESTO, NOMBRE) values (?, ?);";
 	      boolean error=false;
 	      try {
-	      for(int y=0;y<obj.size();y++)
+	      for(int y=0;y<puestos.size();y++)
 	      {
 	    	  
-	    	  String[] setStrings = obj.get(y).toArray();;
+	    	  String[] setStrings = puestos.get(y).toArray();;
 	    	  	    	  
 	    	  if(bd.LlamadaInsert(query, setStrings)!=0||error)
 	    	  {
@@ -78,7 +71,7 @@ public class Llamadas extends Main {
 		System.err.println("[Error](Llamadas BD): " + mensaje);
 	}
 
-	public boolean InsertarDatos(ArrayList<ObjGenerico> obj, String tipoInsert) {
+	public boolean InsertarDatos(ArrayList<Object> obj, String tipoInsert) {
 		boolean resul = false;
 		Object tipo = obj.get(0);
 		if(tipo instanceof Puesto)
