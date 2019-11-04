@@ -53,18 +53,21 @@ public class Main {
 			if(!bd.ComprobarRelleno("PUESTOS"))
 			{
 				JOptionPane.showMessageDialog(null, "No existen datos en la tabla puestos, es necesario importar datos.");
-				ImportarPuestos();
+				ImportarPuestos(0);
 			}
 			if(!bd.ComprobarRelleno("DEPARTAMENTO"))
 			{
 				JOptionPane.showMessageDialog(null, "No existen datos en la tabla departamentos, es necesario importar datos.");
-				ImportarDepartamentos();
+				ImportarDepartamentos(0);
 			}
 			if(!bd.ComprobarRelleno("EMPLEADO"))
 			{
 				JOptionPane.showMessageDialog(null, "No existen datos en la tabla empleados, es necesario importar datos.");
-				ImportarEmpleados();
+				ImportarEmpleados(0);
 			}
+			ImportarPuestos(1);
+			ImportarDepartamentos(1);
+			ImportarEmpleados(1);
 		}
 		else
 		{
@@ -75,54 +78,113 @@ public class Main {
 		
 	}
 	
-	private static void ImportarPuestos()
+	private static void ImportarPuestos(int i)
 	{
-		vista.CrearEditorTablas();
-		File puestos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de puestos", "csv"));
-		String[] titulosCeldas= {"Cod puesto","Nom Puesto"};
-		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(puestos, ";");
-		if(celdasPuestos!=null)
+		if(i==0)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas, "PUESTO");
-			vista.editorTablas.Mostrar();
+			vista.CrearEditorTablas();
+			File puestos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de puestos", "csv"));
+			String[] titulosCeldas= {"Cod puesto","Nom Puesto"};
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(puestos, ";");
+			if(celdasPuestos!=null)
+			{
+				vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas, "PUESTO");
+				vista.editorTablas.Mostrar();
+			}
+			else
+			{
+				CerrarAplicacion();
+			}
 		}
-		else
+		else if(i==1)
 		{
-			CerrarAplicacion();
+			vista.CrearEditorTablas();
+			File puestos = new File(".\\Puestos.csv");
+			String[] titulosCeldas= {"Cod puesto","Nom Puesto"};
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(puestos, ";");
+			if(celdasPuestos!=null)
+			{
+				vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas, "PUESTO");
+				vista.editorTablas.Mostrar();
+			}
+			else
+			{
+				CerrarAplicacion();
+			}
 		}
+
 	}
 	
-	private static void ImportarDepartamentos()
+	private static void ImportarDepartamentos(int i)
 	{
-		vista.CrearEditorTablas();
-		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
-		String[] titulosCeldas= {"Cod departamento","Nom departamento","Edificio","Ubicación"};
-		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
-		if(celdasPuestos!=null)
+		if(i==0)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
-			vista.editorTablas.Mostrar();
+			vista.CrearEditorTablas();
+			File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+			String[] titulosCeldas= {"Cod departamento","Nom departamento","Edificio","Ubicación"};
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+			if(celdasPuestos!=null)
+			{
+				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
+				vista.editorTablas.Mostrar();
+			}
+			else
+			{
+				CerrarAplicacion();
+			}
 		}
-		else
+		else if(i==1)
 		{
-			CerrarAplicacion();
+			vista.CrearEditorTablas();
+			File deptartamentos = new File(".\\Departamento.csv");
+			String[] titulosCeldas= {"Cod departamento","Nom departamento","Edificio","Ubicación"};
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+			if(celdasPuestos!=null)
+			{
+				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
+				vista.editorTablas.Mostrar();
+			}
+			else
+			{
+				CerrarAplicacion();
+			}
 		}
+		
 	}
 	
-	private static void ImportarEmpleados()
+	private static void ImportarEmpleados(int i)
 	{
-		vista.CrearEditorTablas();
-		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
-		String[] titulosCeldas= {"Cod empleado","Nom departamento","Departametno","Sueldo", "Jefe", "Su Jefe", "Puesto"};
-		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
-		if(celdasPuestos!=null)
+		if(i==0)
 		{
-			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
-			vista.editorTablas.Mostrar();
+			vista.CrearEditorTablas();
+			File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+			String[] titulosCeldas= {"Cod empleado","Nom departamento","Departametno","Sueldo", "Jefe", "Su Jefe", "Puesto"};
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+			if(celdasPuestos!=null)
+			{
+				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
+				vista.editorTablas.Mostrar();
+			}
+			else
+			{
+				CerrarAplicacion();
+			}
 		}
-		else
+		else if(i==1)
 		{
-			CerrarAplicacion();
+			vista.CrearEditorTablas();
+			File deptartamentos = new File(".\\Empleado.csv");
+			String[] titulosCeldas= {"Cod empleado","Nom departamento","Departametno","Sueldo", "Jefe", "Su Jefe", "Puesto"};
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+			if(celdasPuestos!=null)
+			{
+				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
+				vista.editorTablas.Mostrar();
+			}
+			else
+			{
+				CerrarAplicacion();
+			}
 		}
 	}
 	

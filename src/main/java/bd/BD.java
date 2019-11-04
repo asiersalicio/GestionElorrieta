@@ -5,6 +5,7 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Time;
 
@@ -105,7 +106,10 @@ public class BD extends Main {
 			pstatment.executeUpdate();
 		    return 0;
 		} catch (SQLException e) {
-			MostrarError("Formato incorrecto: " + e.getMessage());
+			if(e.getErrorCode() == 1062)
+			{
+				return 0;
+			}
 			return 1;
 		} 
 	}
