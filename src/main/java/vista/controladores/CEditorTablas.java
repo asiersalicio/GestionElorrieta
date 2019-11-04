@@ -7,6 +7,7 @@ import java.awt.event.AdjustmentListener;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -14,7 +15,7 @@ import obj.Celda;
 import obj.CeldaDatos;
 import obj.CeldaTitulo;
 import obj.Departamento;
-import obj.ObjGenerico;
+import obj.Empleado;
 import obj.Puesto;
 import vista.graficos.GEditorTablas;
 
@@ -23,8 +24,7 @@ public class CEditorTablas extends GEditorTablas {
 	public boolean cambios = false;
 	private File archivo=null;
 	public boolean ratonEncima=false;
-	private String tipoInsert;
-	private String[] celdasTitulos;
+	private String nombreTabla;
 	
 	public CEditorTablas()
 	{
@@ -71,7 +71,7 @@ public class CEditorTablas extends GEditorTablas {
 		
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//BotonAceptarPulsado();
+				BotonAceptarPulsado();
 			}
 		});
 		
@@ -115,26 +115,75 @@ public class CEditorTablas extends GEditorTablas {
 //		});
 	}
 	
-//	private void BotonAceptarPulsado()
-//	{
-//		ArrayList<ArrayList<String>> celdas = LeerCeldas();
-//		consola.ImprimirArray2D(celdas);
-//		if(bd.llamadas.InsertarDatos(celdas, tipoInsert))
-//		{
-//			frame.dispose();
-//			bd.CerrarConexion();
-//		}
-//		else
-//		{
-//			bd.CerrarConexion();
-//			JOptionPane.showMessageDialog(null, "Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
-//			BorrarCeldas();
-//			File archivo = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
-//			ArrayList<ArrayList<String>> celdas1 = es.interprete.LectorArchivos2D(archivo, ";");
-//			RellenarCeldas(celdas1, archivo, celdasTitulos, tipoInsert);
-//		}
-//		
-//	}
+	private void BotonAceptarPulsado()
+	{
+		ArrayList<ArrayList<String>> celdas = LeerCeldas();
+		consola.ImprimirArray2D(celdas);
+		boolean error=false;
+		switch(nombreTabla)
+		{
+			case "DEPARTAMENTO":
+				if(bd.llamadas.InsertarDepartamentos(ConvertirCeldasADepartamentos()))
+					frame.dispose();
+				else
+					error=true;
+			break;
+			case "PUESTO":
+				if(bd.llamadas.InsertarPuestos(ConvertirCeldasAPuestos()))
+					frame.dispose();
+				else
+					error=true;
+			break;
+			case "EMPLEADO":
+				if(bd.llamadas.InsertarEmpleado(ConvertirCeldasAEmpleados()))
+					frame.dispose();
+				else
+					error=true;
+			break;
+		}
+		
+		if(error)
+		{
+			JOptionPane.showMessageDialog(null, "Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
+		}
+		
+		
+		bd.CerrarConexion();
+	}
+
+	private ArrayList<Empleado> ConvertirCeldasAEmpleados() {
+		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+		ArrayList<ArrayList<String>> celdas = LeerCeldas();
+		for(int i = 0;i<celdas.size();i++)
+		{
+			Empleado empleado = new Empleado(Integer.parseInt(celdas.get(i).get(0)), Integer.parseInt(celdas.get(i).get(2)),Integer.parseInt(celdas.get(i).get(3)), Integer.parseInt(celdas.get(i).get(4)), Integer.parseInt(celdas.get(i).get(5)), celdas.get(i).get(1), celdas.get(i).get(6));
+			empleados.add(empleado);
+		}
+		return empleados;
+	}
+
+	private ArrayList<Departamento> ConvertirCeldasADepartamentos() {
+		ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+		ArrayList<ArrayList<String>> celdas = LeerCeldas();
+		for(int i = 0;i<celdas.size();i++)
+		{
+			Departamento departamento = new Departamento(Integer.parseInt(celdas.get(i).get(0)), Integer.parseInt(celdas.get(i).get(2)), celdas.get(i).get(1), celdas.get(i).get(3));
+			departamentos.add(departamento);
+		}
+		return departamentos;
+	}
+
+	private ArrayList<Puesto> ConvertirCeldasAPuestos() {
+		ArrayList<Puesto> puestos = new ArrayList<Puesto>();
+		ArrayList<ArrayList<String>> celdas = LeerCeldas();
+		for(int i = 0;i<celdas.size();i++)
+		{
+			Puesto puesto = new Puesto(Integer.parseInt(celdas.get(i).get(0)), celdas.get(i).get(1));
+			puestos.add(puesto);
+		}
+		return puestos;
+	}
+	
 
 	public void Mostrar()
 	{
@@ -142,12 +191,12 @@ public class CEditorTablas extends GEditorTablas {
 		frame.setVisible(true);
 	}
 	
-	public void RellenarCeldas(ArrayList<?> puestos, File archivo, String[] celdasTitulos)
+	public void RellenarCeldas(ArrayList<ArrayList<String>> arrayList, File archivo, String[] celdasTitulos, String nombreTabla)
 	{
-		this.celdasTitulos=celdasTitulos;
+		this.nombreTabla=nombreTabla;
 		frame.setTitle(archivo.getName());
 		celdas = new ArrayList<ArrayList<Celda>>();
-		scrollVertical.setMaximum(puestos.size());
+		scrollVertical.setMaximum(arrayList.size());
 		frame.setTitle(archivo.getName());
 		int x,y;
 		celdas.add(0, new ArrayList<Celda>());
@@ -155,18 +204,16 @@ public class CEditorTablas extends GEditorTablas {
 		{
 			celdas.get(0).add(x, new CeldaTitulo(panelDatos, x, 0, celdasTitulos[x]));	
 		}
-		for(y=1;y<puestos.size();y++)
+		for(y=1;y<arrayList.size();y++)
 		{
 			celdas.add(y, new ArrayList<Celda>());
-			String[] arrayRellenar = ((ObjGenerico) puestos.get(y)).toArray();
-			for(x=0;x<arrayRellenar.length;x++)
+			for(x=0;x<arrayList.get(y).size();x++)
 			{
-				celdas.get(y).add(x, new CeldaDatos(frame, panelDatos, x, y, arrayRellenar[x]));
+				celdas.get(y).add(x, new CeldaDatos(frame, panelDatos, x, y, arrayList.get(y).get(x)));
 			}
+			//celdas.get(y).add(x+1, new CeldaAnadir(panelDatos, x+1, y));
 		}
 	}
-	
-
 	
 	private void ActualizarPosCeldas()
 	{
@@ -204,24 +251,6 @@ public class CEditorTablas extends GEditorTablas {
 		}
 	}
 	
-	private void BorrarCeldas()
-	{
-		if(ventanaVisible)
-		{
-			for(int y=0;y<celdas.size();y++)
-			{
-				try 
-				{
-					for(int x=0;x<celdas.get(y).size();x++)
-					{					
-						celdas.get(y).get(x).panel.setVisible(false);
-					}
-				}
-				catch(NullPointerException ex) {}
-			}
-		}
-	}
-	
 //	private void NuevoArchivo()
 //	{
 //		archivo=null;
@@ -250,9 +279,6 @@ public class CEditorTablas extends GEditorTablas {
 		textoAGuardar.remove(0);
 		return textoAGuardar;
 	}
-
-
-
 		
 //	private boolean GuardarArchivo()
 //	{

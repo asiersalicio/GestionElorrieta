@@ -10,7 +10,7 @@ import app.Main;
 
 public class Celda extends Main {
 
-	public JPanel panel;
+	protected JPanel panel;
 	protected int colX;
 	protected int colY;
 	protected boolean esEditable = true;

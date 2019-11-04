@@ -4,6 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.PreparedStatement;
+
 import app.Main;
 import obj.Departamento;
 import obj.Empleado;
@@ -31,16 +36,15 @@ public class Llamadas extends Main {
 
 	}
 	
-	public boolean InsertarPuestos(ArrayList<Puesto> puestos)
+	public boolean InsertarPuestos(ArrayList<Puesto> arrayList)
 	{
-		
-		  String query = "insert into PUESTOS (COD_PUESTO, NOMBRE) values (?, ?);";
+	      String query = "insert into PUESTOS (COD_PUESTO, NOMBRE) values (?, ?);";
 	      boolean error=false;
 	      try {
-	      for(int y=0;y<puestos.size();y++)
+	      for(int y=0;y<arrayList.size();y++)
 	      {
-	    	  
-	    	  String[] setStrings = puestos.get(y).toArray();;
+	    	  Puesto puesto = arrayList.get(y);
+	    	  String[] setStrings = {Integer.toString(puesto.getCodPuesto()),puesto.getNombre()};
 	    	  	    	  
 	    	  if(bd.LlamadaInsert(query, setStrings)!=0||error)
 	    	  {
@@ -71,75 +75,14 @@ public class Llamadas extends Main {
 		System.err.println("[Error](Llamadas BD): " + mensaje);
 	}
 
-	public boolean InsertarDatos(ArrayList<Object> obj, String tipoInsert) {
-		boolean resul = false;
-		Object tipo = obj.get(0);
-		if(tipo instanceof Puesto)
-		{
-			ArrayList<Puesto> puesto = Main.castArrayList(obj);
-			resul = InsertarPuestos(puesto);
-		}
-		else if(tipo instanceof Departamento)
-		{
-			//resul = InsertarDepartamentos(obj);
-		}
-		else if(tipo instanceof Empleado)
-		{
-			//resul = InsertarEmpleado(obj);
-		}
-		
-		try {
-			if(resul)
-			{
-				bd.cn.commit();
-			}
-			else
-			{
-				bd.cn.rollback();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return resul;
-	}
-
-	private boolean InsertarEmpleado(ArrayList<ArrayList<String>> empleado) {
-		String query = "insert into EMPLEADO (COD_EMPLE, NOMBRE, DEPARTAMENTO, SUELDO, JEFE, SU_JEFE, PUESTO) values (?, ?, ?, ?, ?, ?, ?);";
-	      boolean error=false;
-	      try {
-	      for(int y=0;y<empleado.size();y++)
-	      {
-	    	  ArrayList<String> fila = empleado.get(y);
-	    	  String[] setStrings = {fila.get(0),fila.get(1),fila.get(2),fila.get(3),fila.get(4),fila.get(5),fila.get(6)};
-	    	  	    	  
-	    	  if(bd.LlamadaInsert(query, setStrings)!=0||error)
-	    	  {
-	    		  error=true;
-	    		  break;
-	    	  }
-	      }
-	      }catch (java.lang.IndexOutOfBoundsException ex) {
-	    	  MostrarError("Formato de archivo incorrecto");
-	    	  error=true;
-	      }
-	      if(error)
-	      {
-	    	  MostrarError("Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
-	    	  return false;
-	      }
-	      else
-	    	  return true;
-	}
-
-	private boolean InsertarDepartamentos(ArrayList<ArrayList<String>> departamento) {
+	public boolean InsertarDepartamentos(ArrayList<Departamento> arrayList) {
 		String query = "insert into DEPARTAMENTO (COD_DEPART, NOMBRE, EDIFICIO, UBICACION) values (?, ?, ?, ?);";
 	      boolean error=false;
 	      try {
-	      for(int y=0;y<departamento.size();y++)
+	      for(int y=0;y<arrayList.size();y++)
 	      {
-	    	  ArrayList<String> fila = departamento.get(y);
-	    	  String[] setStrings = {fila.get(0),fila.get(1),fila.get(2),fila.get(3)};
+	    	  Departamento puesto = arrayList.get(y);
+	    	  String[] setStrings = {Integer.toString(puesto.getCodDepart()), puesto.getNombre(), Integer.toString(puesto.getEdificio()), puesto.getUbicacion()};
 	    	  	    	  
 	    	  if(bd.LlamadaInsert(query, setStrings)!=0||error)
 	    	  {
@@ -154,23 +97,38 @@ public class Llamadas extends Main {
 	      if(error)
 	      {
 	    	  MostrarError("Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
-	    	  try {
-				bd.cn.rollback();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 	    	  return false;
 	      }
 	      else
-	      {
-	    	try {
-				bd.cn.commit();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 	    	  return true;
+	}
+
+	public boolean InsertarEmpleado(ArrayList<Empleado> arrayList) {
+		String query = "insert into EMPLEADO (COD_EMPLE, NOMBRE, DEPARTAMENTO, SUELDO, JEFE, SU_JEFE, PUESTO) values (?, ?, ?, ?, ?, ?, ?);";
+	      boolean error=false;
+	      try {
+	      for(int y=0;y<arrayList.size();y++)
+	      {
+	    	  Empleado puesto = arrayList.get(y);
+	    	  String[] setStrings = {Integer.toString(puesto.getCodEmple()), puesto.getNombre(), Integer.toString(puesto.getDepartamento()), Integer.toString(puesto.getSueldo()), Integer.toString(puesto.getJefe()), Integer.toString(puesto.getSuJefe()), puesto.getPuesto()};
+	    	  	    	  
+	    	  if(bd.LlamadaInsert(query, setStrings)!=0||error)
+	    	  {
+	    		  error=true;
+	    		  break;
+	    	  }
 	      }
-	    	  
+	      }catch (java.lang.IndexOutOfBoundsException ex) {
+	    	  MostrarError("Formato de archivo incorrecto");
+	    	  error=true;
+	      }
+	      if(error)
+	      {
+	    	  MostrarError("Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
+	    	  return false;
+	      }
+	      else
+	    	  return true;
 	}
 	
 	

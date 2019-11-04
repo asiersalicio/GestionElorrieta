@@ -11,9 +11,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Dialogos.Consola;
 import bd.BD;
 import es.Es;
-import obj.Departamento;
-import obj.Puesto;
+import obj.CeldaTitulo;
 import vista.Vista;
+import vista.controladores.CEditorTablas;
 
 public class Main {
 	
@@ -46,7 +46,7 @@ public class Main {
 		
 	}
 	
-	public static void ImportarDatos()
+	private static void ImportarDatos()
 	{
 		if(bd.ComprobarTablaExistente("PUESTOS")==true&&bd.ComprobarTablaExistente("DEPARTAMENTO")==true&&bd.ComprobarTablaExistente("EMPLEADO")==true)
 		{
@@ -78,19 +78,12 @@ public class Main {
 	private static void ImportarPuestos()
 	{
 		vista.CrearEditorTablas();
-		File filepuestos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de puestos", "csv"));
+		File puestos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de puestos", "csv"));
 		String[] titulosCeldas= {"Cod puesto","Nom Puesto"};
-		ArrayList<ArrayList<String>> ArrayBidimensionalPuestos = es.interprete.LectorArchivos2D(filepuestos, ";");
-		ArrayList<Puesto> puestos = new ArrayList<Puesto>();
-		for(int i = 0;i<ArrayBidimensionalPuestos.size();i++)
+		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(puestos, ";");
+		if(celdasPuestos!=null)
 		{
-			Puesto puesto = new Puesto(Integer.parseInt(ArrayBidimensionalPuestos.get(i).get(0)), ArrayBidimensionalPuestos.get(i).get(1));
-			puestos.add(puesto);
-		}
-
-		if(ArrayBidimensionalPuestos!=null)
-		{
-			vista.editorTablas.RellenarCeldas(puestos, filepuestos, titulosCeldas);
+			vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas, "PUESTO");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -102,19 +95,12 @@ public class Main {
 	private static void ImportarDepartamentos()
 	{
 		vista.CrearEditorTablas();
-		File fileDeptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
 		String[] titulosCeldas= {"Cod departamento","Nom departamento","Edificio","Ubicación"};
-		ArrayList<ArrayList<String>> ArrayBidimensionalDepartamentos = es.interprete.LectorArchivos2D(fileDeptartamentos, ";");
-		ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
-		for(int i = 0;i<ArrayBidimensionalDepartamentos.size();i++)
+		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+		if(celdasPuestos!=null)
 		{
-			Departamento departamento = new Departamento(Integer.parseInt(ArrayBidimensionalDepartamentos.get(i).get(0)),ArrayBidimensionalDepartamentos.get(i).get(1),Integer.parseInt(ArrayBidimensionalDepartamentos.get(i).get(2)), ArrayBidimensionalDepartamentos.get(i).get(3));
-			departamentos.add(departamento);
-		}
-
-		if(ArrayBidimensionalDepartamentos!=null)
-		{
-			vista.editorTablas.RellenarCeldas(departamentos, fileDeptartamentos, titulosCeldas);
+			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -127,11 +113,11 @@ public class Main {
 	{
 		vista.CrearEditorTablas();
 		File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
-		String[] titulosCeldas= {"COD_EMPLE","NOMBRE","DEPARTAMENTO","SUELDO","JEFE","SU_JEFE","PUESTO"};
+		String[] titulosCeldas= {"Cod empleado","Nom departamento","Departametno","Sueldo", "Jefe", "Su Jefe", "Puesto"};
 		ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
 		if(celdasPuestos!=null)
 		{
-			//vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
+			vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
 			vista.editorTablas.Mostrar();
 		}
 		else
@@ -152,15 +138,6 @@ public class Main {
 		bd.CerrarConexion();
 		MostrarPantalla("Matando proceso principal");
 		System.exit(0);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public static <newType, oldType> ArrayList<newType> castArrayList(ArrayList<oldType> list){
-	    ArrayList<newType> newlyCastedArrayList = new ArrayList<newType>();
-	    for(oldType listObject : list){
-	        newlyCastedArrayList.add((newType)listObject);
-	    }
-	    return newlyCastedArrayList;
 	}
 
 }

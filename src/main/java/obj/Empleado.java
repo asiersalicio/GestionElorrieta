@@ -1,39 +1,15 @@
 package obj;
 
-import java.util.ArrayList;
+public class Empleado {
 
-public class Empleado extends ObjGenerico {
-
-	private int codEmple;
-	private String nombre;
-	private int departamento;
-	private int sueldo;
-	private int jefe;
-	private int suJefe;
-	private int puesto;
-	
-	public Empleado(int codEmple, String nombre, int departamento, int sueldo, int jefe, int suJefe, int puesto) {
-		this.codEmple = codEmple;
-		this.nombre = nombre;
-		this.departamento = departamento;
-		this.sueldo = sueldo;
-		this.jefe = jefe;
-		this.suJefe = suJefe;
-		this.puesto = puesto;
-	}
-	
+	private int codEmple, departamento, sueldo, jefe, suJefe;
+	private String nombre, puesto;
 	
 	public int getCodEmple() {
 		return codEmple;
 	}
 	public void setCodEmple(int codEmple) {
 		this.codEmple = codEmple;
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 	public int getDepartamento() {
 		return departamento;
@@ -59,17 +35,32 @@ public class Empleado extends ObjGenerico {
 	public void setSuJefe(int suJefe) {
 		this.suJefe = suJefe;
 	}
-	public int getPuesto() {
+	public String getPuesto() {
 		return puesto;
 	}
-	public void setPuesto(int puesto) {
+	public void setPuesto(String puesto) {
+		this.puesto = puesto;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Empleado(int codEmple, int departamento, int sueldo, int jefe, int suJefe, String nombre, String puesto) {
+		super();
+		this.codEmple = codEmple;
+		this.departamento = departamento;
+		this.sueldo = sueldo;
+		this.jefe = jefe;
+		this.suJefe = suJefe;
+		this.nombre = nombre;
 		this.puesto = puesto;
 	}
 	
-	public String[] toArray()
-	{
-		String[] devolver = {Integer.toString(codEmple),nombre,Integer.toString(departamento),Integer.toString(sueldo),Integer.toString(jefe),Integer.toString(suJefe),Integer.toString(puesto)};
-		return devolver;
-	}
+	
+	
+	
+	
 	
 }
