@@ -21,20 +21,6 @@ public class Llamadas extends Main {
 		
 	}
 	
-	public void Prueba()
-	{
-		
-		String[] prueba={"1"};
-		ResultSet resultado=bd.Llamada("select * from Empleado where cod_emple = ?;", prueba);
-		try {
-			while(resultado.next())
-			{
-				System.out.println(resultado.getString("nombre"));
-			}
-			} catch (SQLException e) {e.printStackTrace();}
-		bd.CerrarConexion();
-
-	}
 	
 	public boolean InsertarPuestos(ArrayList<Puesto> arrayList)
 	{
@@ -131,6 +117,19 @@ public class Llamadas extends Main {
 	    	  return true;
 	}
 	
-	
-	
+	public Departamento CargarDepartamento(int codDepart)
+	{
+		String query = "SELECT * FROM DEPARTAMENTO WHERE COD_DEPART = ?";
+		String[] setStrings = {Integer.toString(codDepart)};
+		ResultSet result=bd.Llamada(query, setStrings);	
+		try {
+			if(result.next())
+			{
+				return new Departamento(result.getInt("COD_DEPART"), result.getInt("EDIFICIO"), result.getString("NOMBRE"), result.getString("UBICACION"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

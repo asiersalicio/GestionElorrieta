@@ -6,6 +6,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import app.Main;
 import vista.graficos.GMenu;
 import vista.graficos.GMenuDepartamentos;
@@ -49,6 +52,14 @@ public class CMenu extends GMenu {
 				CerrarAplicacion();
             }
         });
+		
+		tabbedPane.addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				pestanas.get(tabbedPane.getSelectedIndex()).AbrirPestana();
+			}
+		});
 	}
 
 	public void Mostrar() {
