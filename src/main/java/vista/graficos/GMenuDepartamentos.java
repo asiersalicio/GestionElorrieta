@@ -20,6 +20,7 @@ public class GMenuDepartamentos extends GPestana {
 	public JComboBox comboUbicacion;
 	public JLabel lblCodDepart, lblNomDepart, lblUbicacion, lblEdificio;
 	public JButton btnAnterior, btnSiguiente;
+	public JButton btnCrearDepartamento;
 
 
 	
@@ -37,19 +38,28 @@ public class GMenuDepartamentos extends GPestana {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		
+		btnCrearDepartamento = new JButton("Crear Departamento");
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(33)
 					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 323, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(409, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+					.addComponent(btnCrearDepartamento, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)
+					.addGap(55))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(73)
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 189, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(73)
+							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 189, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(84)
+							.addComponent(btnCrearDepartamento, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(171, Short.MAX_VALUE))
 		);
 		panel_1.setLayout(null);
@@ -93,7 +103,6 @@ public class GMenuDepartamentos extends GPestana {
 		panel_1.add(lblEdificio);
 		
 		btnAnterior = new JButton("Anterior");
-		btnAnterior.setEnabled(false);
 		btnAnterior.setBounds(66, 155, 89, 23);
 		panel_1.add(btnAnterior);
 		
