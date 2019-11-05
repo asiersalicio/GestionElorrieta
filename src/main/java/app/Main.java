@@ -105,7 +105,8 @@ public class Main {
 			if(celdasPuestos!=null)
 			{
 				vista.editorTablas.RellenarCeldas(celdasPuestos, puestos, titulosCeldas, "PUESTO");
-				vista.editorTablas.Mostrar();
+				//vista.editorTablas.Mostrar();
+				vista.editorTablas.BotonAceptarPulsado();
 			}
 			else
 			{
@@ -142,7 +143,8 @@ public class Main {
 			if(celdasPuestos!=null)
 			{
 				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "DEPARTAMENTO");
-				vista.editorTablas.Mostrar();
+				//vista.editorTablas.Mostrar();
+				vista.editorTablas.BotonAceptarPulsado();
 			}
 			else
 			{
@@ -179,7 +181,8 @@ public class Main {
 			if(celdasPuestos!=null)
 			{
 				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
-				vista.editorTablas.Mostrar();
+				//vista.editorTablas.Mostrar();
+				vista.editorTablas.BotonAceptarPulsado();
 			}
 			else
 			{

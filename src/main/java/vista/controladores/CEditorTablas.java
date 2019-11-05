@@ -115,7 +115,7 @@ public class CEditorTablas extends GEditorTablas {
 //		});
 	}
 	
-	private void BotonAceptarPulsado()
+	public void BotonAceptarPulsado()
 	{
 		ArrayList<ArrayList<String>> celdas = LeerCeldas();
 		consola.ImprimirArray2D(celdas);

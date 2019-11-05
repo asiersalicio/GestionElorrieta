@@ -21,7 +21,7 @@ public class GMenuDepartamentos extends GPestana {
 	public GMenuDepartamentos(JTabbedPane tabbedpane)
 	{
 		super(tabbedpane, "Departamentos", new ImageIcon(GMenu.class.getResource("/res/escritorio.jpg")));
-		
+		//JPanel panel = new JPanel();
 		
 		JLabel lblNombreDelDepartamento = new JLabel("Nombre del departamento");
 		
