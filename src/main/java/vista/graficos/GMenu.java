@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import vista.Vista;
+import javax.swing.JLabel;
 
 public class GMenu extends Vista {
 	
@@ -15,6 +16,7 @@ public class GMenu extends Vista {
 	public JPanel panel_1,panel_3,panel_4;
 	public JTabbedPane tabbedPane;
 	public JButton btnNewButton;
+	public JLabel lblReloj;
 	
 	public GMenu()
 	{
@@ -33,6 +35,9 @@ public class GMenu extends Vista {
 		
 		btnNewButton = new JButton("Cerrar Sesion y Salir");
 		panel_1.add(btnNewButton);
+		
+		lblReloj = new JLabel("");
+		panel_1.add(lblReloj);
 		
 	}
 }

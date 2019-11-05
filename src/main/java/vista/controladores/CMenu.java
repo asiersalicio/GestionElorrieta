@@ -10,6 +10,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import app.Main;
+import obj.Reloj;
 import vista.graficos.GMenu;
 import vista.graficos.GMenuDepartamentos;
 import vista.graficos.GMenuEmpleados;
@@ -25,8 +26,14 @@ public class CMenu extends GMenu {
 	{
 		AnadirPestanas();
 		AnadirListeners();
+		IniciarReloj();
 	}
 	
+	private void IniciarReloj() {
+		Reloj reloj = new Reloj(lblReloj);
+		reloj.start();
+	}
+
 	private void AnadirPestanas() {
 		pestanas.add(new CMenuPrincipal(tabbedPane));
 		pestanas.add(new CMenuDepartamentos(tabbedPane));
