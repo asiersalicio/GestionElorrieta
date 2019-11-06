@@ -1,20 +1,28 @@
 package vista.graficos;
 
-import javax.swing.JDialog;
 import java.awt.Window.Type;
-import javax.swing.JButton;
-import javax.swing.JSpinner;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import java.awt.Color;
-import javax.swing.border.BevelBorder;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
-public class GCrearDepartamento {
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+
+import app.Main;
+import java.awt.Color;
+import java.awt.Font;
+
+public class GCrearDepartamento extends Main{
 
 	public JDialog frame;
-	private JTextField fieldDepart;
+	public JTextField fieldNombDepart;
+	public JButton btnAceptar;
+	public JSpinner spnCodDepart;
+	public JComboBox<String> comboEdifcio;
+	public JComboBox<String> comboUbicacion;
+	public JLabel lblError;
 	
 	public GCrearDepartamento()
 	{
@@ -26,7 +34,7 @@ public class GCrearDepartamento {
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(10, 157, 89, 23);
 		frame.getContentPane().add(btnAceptar);
 		
@@ -38,12 +46,12 @@ public class GCrearDepartamento {
 		lblNomDepart.setBounds(34, 50, 120, 14);
 		frame.getContentPane().add(lblNomDepart);
 		
-		fieldDepart = new JTextField();
-		fieldDepart.setBounds(175, 45, 100, 24);
-		frame.getContentPane().add(fieldDepart);
-		fieldDepart.setColumns(10);
+		fieldNombDepart = new JTextField();
+		fieldNombDepart.setBounds(175, 45, 100, 24);
+		frame.getContentPane().add(fieldNombDepart);
+		fieldNombDepart.setColumns(10);
 		
-		JSpinner spnCodDepart = new JSpinner();
+		spnCodDepart = new JSpinner();
 		spnCodDepart.setEnabled(false);
 		spnCodDepart.setBounds(175, 11, 100, 23);
 		frame.getContentPane().add(spnCodDepart);
@@ -56,14 +64,21 @@ public class GCrearDepartamento {
 		lblUbicacion.setBounds(34, 118, 120, 14);
 		frame.getContentPane().add(lblUbicacion);
 		
-		JComboBox comboEdifcio = new JComboBox();
+		comboEdifcio = new JComboBox();
 		comboEdifcio.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
 		comboEdifcio.setBounds(175, 80, 100, 23);
 		frame.getContentPane().add(comboEdifcio);
 		
-		JComboBox comboUbicacion = new JComboBox();
+		comboUbicacion = new JComboBox();
 		comboUbicacion.setModel(new DefaultComboBoxModel(new String[] {"Elorrieta", "Errekamari"}));
 		comboUbicacion.setBounds(175, 114, 100, 23);
 		frame.getContentPane().add(comboUbicacion);
+		
+		lblError = new JLabel("Error");
+		lblError.setVisible(false);
+		lblError.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblError.setForeground(Color.RED);
+		lblError.setBounds(105, 161, 170, 14);
+		frame.getContentPane().add(lblError);
 	}
 }
