@@ -156,8 +156,10 @@ public class CEditorTablas extends GEditorTablas {
 		ArrayList<ArrayList<String>> celdas = LeerCeldas();
 		for(int i = 0;i<celdas.size();i++)
 		{
+			try {
 			Empleado empleado = new Empleado(Integer.parseInt(celdas.get(i).get(0)), Integer.parseInt(celdas.get(i).get(2)),Integer.parseInt(celdas.get(i).get(3)), Integer.parseInt(celdas.get(i).get(4)), Integer.parseInt(celdas.get(i).get(5)), celdas.get(i).get(1), celdas.get(i).get(6));
 			empleados.add(empleado);
+			}catch(NullPointerException ex) {} catch (NumberFormatException ex2) {}
 		}
 		return empleados;
 	}
@@ -167,8 +169,10 @@ public class CEditorTablas extends GEditorTablas {
 		ArrayList<ArrayList<String>> celdas = LeerCeldas();
 		for(int i = 0;i<celdas.size();i++)
 		{
+			try {
 			Departamento departamento = new Departamento(Integer.parseInt(celdas.get(i).get(0)), Integer.parseInt(celdas.get(i).get(2)), celdas.get(i).get(1), celdas.get(i).get(3));
 			departamentos.add(departamento);
+			}catch(NullPointerException ex) {} catch (NumberFormatException ex2) {}
 		}
 		return departamentos;
 	}
@@ -178,8 +182,10 @@ public class CEditorTablas extends GEditorTablas {
 		ArrayList<ArrayList<String>> celdas = LeerCeldas();
 		for(int i = 0;i<celdas.size();i++)
 		{
+			try {
 			Puesto puesto = new Puesto(Integer.parseInt(celdas.get(i).get(0)), celdas.get(i).get(1));
 			puestos.add(puesto);
+			}catch(NullPointerException ex) {} catch (NumberFormatException ex2) {}
 		}
 		return puestos;
 	}
@@ -204,12 +210,12 @@ public class CEditorTablas extends GEditorTablas {
 		{
 			celdas.get(0).add(x, new CeldaTitulo(panelDatos, x, 0, celdasTitulos[x]));	
 		}
-		for(y=1;y<arrayList.size();y++)
+		for(y=0;y<arrayList.size();y++)
 		{
-			celdas.add(y, new ArrayList<Celda>());
+			celdas.add(new ArrayList<Celda>());
 			for(x=0;x<arrayList.get(y).size();x++)
 			{
-				celdas.get(y).add(x, new CeldaDatos(frame, panelDatos, x, y, arrayList.get(y).get(x)));
+				celdas.get(y+1).add(x, new CeldaDatos(frame, panelDatos, x, y+1, arrayList.get(y).get(x)));
 			}
 			//celdas.get(y).add(x+1, new CeldaAnadir(panelDatos, x+1, y));
 		}

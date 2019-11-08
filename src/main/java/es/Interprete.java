@@ -75,7 +75,7 @@ public class Interprete extends Main {
 	            	tabla.add(new ArrayList<String>());
 	            	for(int i=0;i<list.length;i++)
 	            	{
-	            		tabla.get(contador).add(i, list[i]);
+	            		tabla.get(contador).add(list[i]);
 	            	}
 	            	contador++;
 	            }
@@ -101,19 +101,26 @@ public class Interprete extends Main {
 		try
         {
             BufferedReader lectorArchivos = new BufferedReader(new FileReader(archivo));
-            int contador=0;
+            int contador=-1;
             while ((linea = lectorArchivos.readLine()) != null)
             {
-            	if(!(linea.charAt(0)=='#') && !(linea.charAt(0)==' ')) 
+            	System.out.println(linea);
+            	if(linea.charAt(0)=='[' && linea.charAt(linea.length()-1)==']')
+            	{
+            		tabla.add(new ArrayList<String>());
+            		contador++;
+            		tabla.get(contador).add(linea.substring(1, linea.length()-1));
+            	}
+            	else if(!(linea.charAt(0)=='#') && !(linea.charAt(0)==' ')) 
             	{
 	            	String[] list = linea.split("=");
-	            	tabla.add(new ArrayList<String>());
-	            	for(int i=0;i<list.length;i++)
-	            	{
-	            		tabla.get(contador).add(i, list[i]);
-	            	}
-	            	contador++;
+	            	tabla.get(contador).add(list[1]);
             	}
+            	else
+            	{
+            		MostrarError("Formato de archivo ini incorrecto");
+            	}
+            	
             }
             lectorArchivos.close();
         }
@@ -124,64 +131,6 @@ public class Interprete extends Main {
 		   return tabla;
 	}
 	
-	public boolean LeerArchivoConsolaPorExtension(File archivo)
-	{
-		if(archivo.getPath().endsWith(".txt"))
-		{
-			System.out.println("[INFO] txt detectado");
-			System.out.println(LectorTextoPlano(archivo));
-			return true;
-		}
-		else if (archivo.getPath().endsWith(".csv"))
-		{
-			System.out.println("[INFO] csv detectado");
-			es.consola.ImprimirArray2D(LectorArchivos2D(archivo, ";"));
-			return true;
-		}
-		else if (archivo.getPath().endsWith(".ini"))
-		{
-			System.out.println("[INFO] ini detectado");
-			es.consola.ImprimirArray2D(LectorArchivosINI(archivo));
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	/*public boolean LeerArchivoGraficoPorExtension(File archivo)
-	{
-		if(archivo.getPath().endsWith(".txt"))
-		{
-			System.out.println("[INFO] .txt detectado");
-			vista.editorTexto = new EditorTexto();
-			vista.editorTexto.EstablecerTexto(LectorTextoPlano(archivo), archivo);
-			vista.editorTexto.Mostrar();
-			return true;
-		}
-		else if (archivo.getPath().endsWith(".csv"))
-		{
-			System.out.println("[INFO] .csv detectado");
-			vista.editorTablas = new EditorTablas();
-			vista.editorTablas.RellenarCeldas(es.interprete.LectorArchivos2D(archivo,";"), archivo);
-			vista.editorTablas.Mostrar();
-			return true;
-		}
-		else if (archivo.getPath().endsWith(".ini"))
-		{
-			System.out.println("[INFO] .ini detectado");
-			vista.editorTablas = new EditorTablas();
-			vista.editorTablas.RellenarCeldas(es.interprete.LectorArchivosINI(archivo), archivo);
-			vista.editorTablas.Mostrar();
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-		return (Boolean) null;
-	}*/
 	
 	
 	public File GuardarArrayListEnCSV(File archivo, ArrayList<ArrayList<String>> arrayList, String separador)
@@ -225,5 +174,15 @@ public class Interprete extends Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private void MostrarConsola(String mensaje)
+	{
+		System.out.println("[Info](Interprete Archivos): " + mensaje);
+	}
+	
+	private void MostrarError(String mensaje)
+	{
+		System.err.println("[Error](Interprete Archivos): " + mensaje);
 	}
 }

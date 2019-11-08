@@ -159,9 +159,9 @@ public class Main {
 		if(i==0)
 		{
 			vista.CrearEditorTablas();
-			File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "csv"));
+			File deptartamentos = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivo de departamentos", "ini"));
 			String[] titulosCeldas= {"Cod empleado","Nom departamento","Departametno","Sueldo", "Jefe", "Su Jefe", "Puesto"};
-			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivosINI(deptartamentos);
 			if(celdasPuestos!=null)
 			{
 				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
@@ -175,9 +175,9 @@ public class Main {
 		else if(i==1)
 		{
 			vista.CrearEditorTablas();
-			File deptartamentos = new File(".\\Empleado.csv");
+			File deptartamentos = new File(".\\Empleado.ini");
 			String[] titulosCeldas= {"Cod empleado","Nom departamento","Departametno","Sueldo", "Jefe", "Su Jefe", "Puesto"};
-			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivos2D(deptartamentos, ";");
+			ArrayList<ArrayList<String>> celdasPuestos = es.interprete.LectorArchivosINI(deptartamentos);
 			if(celdasPuestos!=null)
 			{
 				vista.editorTablas.RellenarCeldas(celdasPuestos, deptartamentos, titulosCeldas, "EMPLEADO");
