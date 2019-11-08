@@ -132,7 +132,7 @@ public class Llamadas extends Main {
 		}
 		return null;
 	}
-	
+
 	public ArrayList<Empleado> ObtenerEmpleados( String buscar, String campo) throws SQLException
 	{
 		 System.out.println("ENTRA");
@@ -161,4 +161,5 @@ public class Llamadas extends Main {
 	      
 	     
 		}
+
 }

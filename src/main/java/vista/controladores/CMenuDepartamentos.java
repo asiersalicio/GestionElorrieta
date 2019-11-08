@@ -29,10 +29,41 @@ public class CMenuDepartamentos extends GMenuDepartamentos{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CargarDepartamento(departamentoActual));
+				departamentoActual=departamentoActual+1;
+				if(CargarDepartamento(departamentoActual))
 				{
-					departamentoActual=departamentoActual++;
+					
 				}
+				else
+				{
+					departamentoActual=departamentoActual-1;
+				}
+			}
+		});
+		
+		btnAnterior.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				departamentoActual=departamentoActual-1;
+				if(CargarDepartamento(departamentoActual))
+				{
+					
+				}
+				else
+				{
+					departamentoActual=departamentoActual+1;
+				}
+				
+			}
+		});
+		
+		btnCrearDepartamento.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CCrearDepartamento crearDepartamento = new CCrearDepartamento();
+				
 			}
 		});
 	}

@@ -32,6 +32,7 @@ public class GEditorRapido extends Main {
 		frame = new JDialog(framePadre, Dialog.ModalityType.DOCUMENT_MODAL);
 		frame.setTitle("EditorRapido");
 		frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		frame.setSize(500, 500);
 		
 		textArea = new JTextArea(texto);
