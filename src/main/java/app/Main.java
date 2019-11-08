@@ -35,8 +35,8 @@ public class Main {
 		es = new Es();
 		MostrarPantalla("Iniciando modulo de datos");
 		bd = new BD();
+		es.interprete.guardarInformeHTML(new File(".\\Informe.html"), null, null);
 		bd.EstablecerDatos(es.interprete.CargarDatosInicioSesion());
-		
 		bd.Conectar(); //Espera a que se conecte
 		
 		vista.MostrarMenu();

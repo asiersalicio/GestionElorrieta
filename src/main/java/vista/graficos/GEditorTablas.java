@@ -90,6 +90,7 @@ public class GEditorTablas extends Main {
 		toolBar.add(panel);
 		
 		btnGuardar = new JButton("Guardar");
+		btnGuardar.setVisible(false);
 		panel.add(btnGuardar);
 		
 		btnEdicion = new JToggleButton("Modo edicion");

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import app.Main;
+import obj.Departamento;
+import obj.Empleado;
 
 public class Interprete extends Main {
 
@@ -175,6 +177,23 @@ public class Interprete extends Main {
 			e.printStackTrace();
 		}
 	}
+	
+	public void guardarInformeHTML(File archivo, ArrayList<Departamento> departamentos, ArrayList<Empleado> empleados)
+	{
+		String htmlFinal="";
+		String head = "";
+		String body = "";
+		
+		head = "<!DOCTYPE html><html><head><title>Informe</title></head>";
+		body = "<body>aaaa</body></html>";
+		htmlFinal = head + body;
+		try {
+		BufferedWriter writer = new BufferedWriter(new FileWriter(archivo));
+		writer.write(htmlFinal);
+		writer.close();
+		}catch(IOException e) {e.printStackTrace();}
+	}
+	
 	
 	private void MostrarConsola(String mensaje)
 	{
