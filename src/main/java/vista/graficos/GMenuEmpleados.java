@@ -23,45 +23,45 @@ public class GMenuEmpleados extends GPestana {
 	public JComboBox comboBox ;
 	public JButton buscar ;
 	public JTextPane textPane ;
-	
+	public JPanel menuEmple;
 
 
 
 	public GMenuEmpleados(JTabbedPane tabbedPane)
 	{
 		super(tabbedPane, "Empleados", new ImageIcon(GMenu.class.getResource("/res/empleados.jpg")));
-		 JPanel panel = new JPanel();
+		 //JPanel panel = new JPanel();
 		 
-		 JPanel panel_1 = new JPanel();
+		  menuEmple = new JPanel();
 		 GroupLayout gl_panel = new GroupLayout(panel);
 		 gl_panel.setHorizontalGroup(
 		 	gl_panel.createParallelGroup(Alignment.LEADING)
 		 		.addGroup(gl_panel.createSequentialGroup()
 		 			.addContainerGap()
-		 			.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 427, GroupLayout.PREFERRED_SIZE)
+		 			.addComponent(menuEmple, GroupLayout.PREFERRED_SIZE, 427, GroupLayout.PREFERRED_SIZE)
 		 			.addContainerGap(89, Short.MAX_VALUE))
 		 );
 		 gl_panel.setVerticalGroup(
 		 	gl_panel.createParallelGroup(Alignment.LEADING)
 		 		.addGroup(gl_panel.createSequentialGroup()
 		 			.addContainerGap()
-		 			.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE)
+		 			.addComponent(menuEmple, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE)
 		 			.addContainerGap(103, Short.MAX_VALUE))
 		 );
-		 panel_1.setLayout(null);
+		 menuEmple.setLayout(null);
 		 
 		  nuevo = new JButton("Nuevo Empleado");
 		 nuevo.setBounds(132, 11, 146, 23);
-		 panel_1.add(nuevo);
+		 menuEmple.add(nuevo);
 		 
 		  comboBox = new JComboBox();
 		 comboBox.setModel(new DefaultComboBoxModel(new String[] {"C\u00F3digo", "Nombre"}));
 		 comboBox.setBounds(37, 63, 64, 20);
-		 panel_1.add(comboBox);
+		 menuEmple.add(comboBox);
 		 
 		 textField = new JTextField();
 		 textField.setBounds(132, 63, 146, 20);
-		 panel_1.add(textField);
+		 menuEmple.add(textField);
 		 textField.setColumns(10);
 		 
 		  buscar = new JButton("Buscar");
@@ -70,11 +70,11 @@ public class GMenuEmpleados extends GPestana {
 		 	}
 		 });
 		 buscar.setBounds(288, 62, 89, 23);
-		 panel_1.add(buscar);
+		 menuEmple.add(buscar);
 		 
 		  textPane = new JTextPane();
 		 textPane.setBounds(65, 109, 292, 110);
-		 panel_1.add(textPane);
+		 menuEmple.add(textPane);
 		 panel.setLayout(gl_panel);
 		
 	}

@@ -57,6 +57,10 @@ public class Empleado {
 		this.nombre = nombre;
 		this.puesto = puesto;
 	}
+	public Empleado(int codEmple) {
+		
+		this.codEmple = codEmple;
+	}
 	
 	
 	

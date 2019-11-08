@@ -117,7 +117,7 @@ public class Llamadas extends Main {
 	    	  return true;
 	}
 	
-	public Departamento CargarDepartamento(int codDepart)
+	public Departamento CargarDepartamento( int codDepart)
 	{
 		String query = "SELECT * FROM DEPARTAMENTO WHERE COD_DEPART = ?";
 		String[] setStrings = {Integer.toString(codDepart)};
@@ -132,4 +132,33 @@ public class Llamadas extends Main {
 		}
 		return null;
 	}
+	
+	public ArrayList<Empleado> ObtenerEmpleados( String buscar, String campo) throws SQLException
+	{
+		 System.out.println("ENTRA");
+		 ArrayList <Empleado> empleados = new ArrayList<Empleado>();
+		 Empleado emple;
+		if (buscar.equals("Código")) {
+	      String query = "select * from EMPLEADO where ('COD_EMPLE') = ?;";
+	      String[] setStrings = {(campo)};
+	      ResultSet result=bd.Llamada(query, setStrings);
+	     
+	      while (result.next()) {
+	    	  
+	    	  System.out.println(result.getInt(0)+result.getInt(1));
+	    	  emple= new Empleado(result.getInt(0));
+	    	  empleados.add(emple);
+	      }
+		
+		
+		}else {
+			 String query = "select * from EMPLEADO where ('NOMBRE') = ?;";
+		      String[] setStrings = {(buscar)};
+		}
+			
+		return empleados;
+	      
+	      
+	     
+		}
 }
