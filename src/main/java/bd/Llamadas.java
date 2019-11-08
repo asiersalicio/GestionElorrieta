@@ -139,21 +139,31 @@ public class Llamadas extends Main {
 		 ArrayList <Empleado> empleados = new ArrayList<Empleado>();
 		 Empleado emple;
 		if (buscar.equals("Código")) {
-	      String query = "select * from EMPLEADO where ('COD_EMPLE') = ?;";
+			System.out.println(campo);
+	      String query = "select * from EMPLEADO where COD_EMPLE = ?;";
 	      String[] setStrings = {(campo)};
 	      ResultSet result=bd.Llamada(query, setStrings);
 	     
 	      while (result.next()) {
-	    	  
-	    	  System.out.println(result.getInt(0)+result.getInt(1));
-	    	  emple= new Empleado(result.getInt(0));
+
+	    	  //System.out.println(result.getInt(0)+result.getInt(1));
+	    	  //COD_EMPLE, NOMBRE, DEPARTAMENTO, SUELDO, JEFE, SU_JEFE, PUESTO
+	    	  //System.out.println(result.getInt("COD_EMPLE")+result.getString("NOMBRE")+result.getString("DEPARTAMENTO")+result.getInt("SUELDO")+result.getInt("JEFE"));
+	    	  emple= new Empleado(result.getInt("COD_EMPLE"));
 	    	  empleados.add(emple);
 	      }
 		
 		
 		}else {
-			 String query = "select * from EMPLEADO where ('NOMBRE') = ?;";
-		      String[] setStrings = {(buscar)};
+			 String query = "select * from EMPLEADO where NOMBRE = ?;";
+		      String[] setStrings = {(campo)};
+		      ResultSet result=bd.Llamada(query, setStrings);
+		      while (result.next()) {
+		    	  //System.out.println(result.getInt("COD_EMPLE")+result.getString("NOMBRE")+result.getString("DEPARTAMENTO")+result.getInt("SUELDO")+result.getInt("JEFE"));
+		    	  //emple= new Empleado(result.getInt("COD_EMPLE")+result.getInt("SUELDO")+result.getInt("JEFE")+result.getInt("SU_JEFE")+result.getInt("PUESTO")+result.getString("NOMBRE")+result.getString("DEPARTAMENTO"));
+		    	  emple= new Empleado(result.getInt("COD_EMPLE"));
+		    	  empleados.add(emple);
+		      }
 		}
 			
 		return empleados;
