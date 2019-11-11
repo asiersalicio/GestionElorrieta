@@ -172,4 +172,22 @@ public class Llamadas extends Main {
 	     
 		}
 
+	
+	public ArrayList<Departamento> ObtenerDepartamentos()
+	{
+		String query = "SELECT * FROM DEPARTAMENTO";
+		String[] setStrings = {};
+		ResultSet result=bd.Llamada(query, setStrings);	
+		ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+		try {
+			while(result.next())
+			{
+				departamentos.add(new Departamento(result.getInt("COD_DEPART"), result.getInt("EDIFICIO"), result.getString("NOMBRE"), result.getString("UBICACION")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return departamentos;
+	}
+	
 }
