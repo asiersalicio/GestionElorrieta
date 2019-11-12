@@ -183,10 +183,22 @@ public class Interprete extends Main {
 		String htmlFinal="";
 		String head = "";
 		String body = "";
+		String tablaDepartamentos = "";
 		
 		head = "<!DOCTYPE html><html><head><title>Informe</title></head>";
-		body = "<body>aaaa</body></html>";
-		htmlFinal = head + body;
+		body = "<body><h1>Informe</h1><p>";
+		tablaDepartamentos="<table border='1'>";
+		for(int y=0;y<departamentos.size();y++)
+		{
+			Departamento depart = departamentos.get(y);
+			tablaDepartamentos+="<tr><td>" + depart.getCodDepart() +  "</td><td>" + depart.getNombre() +  "</td><td>" + depart.getEdificio() +  "</td><td>" + depart.getUbicacion() +  "</td></tr>";
+		}
+		tablaDepartamentos+="</table>";
+		
+		body+=tablaDepartamentos;
+		
+		
+		htmlFinal = head + body + "</body>";
 		try {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(archivo));
 		writer.write(htmlFinal);

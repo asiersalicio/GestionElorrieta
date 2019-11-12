@@ -41,6 +41,14 @@ public class CMenuEmpleados extends GMenuEmpleados {
 				
 			}
 		});	
+		nuevo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CCrearDepartamento crearDepartamento = new CCrearDepartamento();
+				
+			}
+		});
 		buscar.addActionListener(new ActionListener() {
 			Llamadas llamada= new Llamadas();
 			ArrayList <Empleado> empleados = new ArrayList<Empleado>();
