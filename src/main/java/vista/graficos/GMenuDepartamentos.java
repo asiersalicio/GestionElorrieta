@@ -11,6 +11,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.BevelBorder;
+import java.awt.Color;
 
 public class GMenuDepartamentos extends GPestana {
 	public JTextField fieldEdificio, fieldNomDepart, fieldCodDepart;
@@ -25,6 +26,7 @@ public class GMenuDepartamentos extends GPestana {
 	{
 		super(tabbedpane, "Departamentos", new ImageIcon(GMenu.class.getResource("/res/escritorio.jpg")));
 		//JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		
 		JLabel lblNewLabel_1 = new JLabel("Hubicación");
 		String[] datos = {"Elorrieta", "Errekamari"};
@@ -34,6 +36,7 @@ public class GMenuDepartamentos extends GPestana {
 		JButton btnRegistrar = new JButton("Registrar");
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		
 		btnCrearDepartamento = new JButton("Crear Departamento");

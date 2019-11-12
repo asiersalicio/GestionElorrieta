@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import vista.Vista;
+import java.awt.Color;
 
 public class GMenu extends Vista {
 	
@@ -21,16 +22,19 @@ public class GMenu extends Vista {
 	public GMenu()
 	{
 		ventana = new JFrame();
+		ventana.setBackground(new Color(255, 255, 255));
 		ventana.setTitle("Menu principal");
 		ventana.setSize(867, 509);
 		ventana.setLocationRelativeTo(null);
 		
 		
-		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
+		tabbedPane.setBackground(new Color(255, 255, 255));
 		ventana.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
 		
 		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
 		ventana.getContentPane().add(panel_1, BorderLayout.SOUTH);
 		
 		btnNewButton = new JButton("Cerrar Sesion y Salir");

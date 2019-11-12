@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JCheckBox;
+import java.awt.Color;
 
 public class GMenuInformes extends GPestana {
 
@@ -21,13 +22,16 @@ public class GMenuInformes extends GPestana {
 	public GMenuInformes(JTabbedPane tabbedPane) {
 		super(tabbedPane, "Informes", new ImageIcon(GMenu.class.getResource("/res/informes.jpg")));
 		//JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		
 		btnGenerarInforme = new JButton("Generar Informe");
 		
 		
 		chckbxEmpleados = new JCheckBox("Empleados");
+		chckbxEmpleados.setBackground(new Color(255, 255, 255));
 		
 		chckbxDepartamentos = new JCheckBox("Departamentos");
+		chckbxDepartamentos.setBackground(new Color(255, 255, 255));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
