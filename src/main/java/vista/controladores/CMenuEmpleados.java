@@ -45,7 +45,7 @@ public class CMenuEmpleados extends GMenuEmpleados {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				CCrearDepartamento crearDepartamento = new CCrearDepartamento();
+				CCrearEmpleado crearEmpleado = new CCrearEmpleado();
 				
 			}
 		});

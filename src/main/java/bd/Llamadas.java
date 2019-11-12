@@ -189,5 +189,31 @@ public class Llamadas extends Main {
 		}
 		return departamentos;
 	}
-	
+	public boolean InsertarEmpleado2(ArrayList<Empleado> arrayList) {
+		String query = "insert into EMPLEADO (NOMBRE, DEPARTAMENTO, SUELDO, JEFE, SU_JEFE, PUESTO) values ( ?, ?, ?, ?, ?, ?);";
+	      boolean error=false;
+	      try {
+	      for(int y=0;y<arrayList.size();y++)
+	      {
+	    	  Empleado puesto = arrayList.get(y);
+	    	  String[] setStrings = {puesto.getNombre(), Integer.toString(puesto.getDepartamento()), Integer.toString(puesto.getSueldo()), Integer.toString(puesto.getJefe()), Integer.toString(puesto.getSuJefe()),  Integer.toString(puesto.getPuesto())};
+	    	  	    	  
+	    	  if(bd.LlamadaInsert(query, setStrings)!=0||error)
+	    	  {
+	    		  error=true;
+	    		  break;
+	    	  }
+	      }
+	      }catch (java.lang.IndexOutOfBoundsException ex) {
+	    	  MostrarError("Formato de archivo incorrecto");
+	    	  error=true;
+	      }
+	      if(error)
+	      {
+	    	  MostrarError("Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
+	    	  return false;
+	      }
+	      else
+	    	  return true;
+	}
 }
