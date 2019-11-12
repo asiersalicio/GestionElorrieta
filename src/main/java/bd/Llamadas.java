@@ -96,7 +96,7 @@ public class Llamadas extends Main {
 	      for(int y=0;y<arrayList.size();y++)
 	      {
 	    	  Empleado puesto = arrayList.get(y);
-	    	  String[] setStrings = {Integer.toString(puesto.getCodEmple()), puesto.getNombre(), Integer.toString(puesto.getDepartamento()), Integer.toString(puesto.getSueldo()), Integer.toString(puesto.getJefe()), Integer.toString(puesto.getSuJefe()), puesto.getPuesto()};
+	    	  String[] setStrings = {Integer.toString(puesto.getCodEmple()), puesto.getNombre(), Integer.toString(puesto.getDepartamento()), Integer.toString(puesto.getSueldo()), Integer.toString(puesto.getJefe()), Integer.toString(puesto.getSuJefe()),  Integer.toString(puesto.getPuesto())};
 	    	  	    	  
 	    	  if(bd.LlamadaInsert(query, setStrings)!=0||error)
 	    	  {
@@ -148,20 +148,20 @@ public class Llamadas extends Main {
 
 	    	  //System.out.println(result.getInt(0)+result.getInt(1));
 	    	  //COD_EMPLE, NOMBRE, DEPARTAMENTO, SUELDO, JEFE, SU_JEFE, PUESTO
-	    	  //System.out.println(result.getInt("COD_EMPLE")+result.getString("NOMBRE")+result.getString("DEPARTAMENTO")+result.getInt("SUELDO")+result.getInt("JEFE"));
-	    	  emple= new Empleado(result.getInt("COD_EMPLE"));
+	    	
+	    	  System.out.println(result.getInt("COD_EMPLE")+result.getString("NOMBRE").toUpperCase()+result.getString("DEPARTAMENTO")+result.getInt("SUELDO")+result.getInt("JEFE"));
+	    	  emple= new Empleado(result.getInt("COD_EMPLE"),result.getString("NOMBRE"),result.getInt("SUELDO"),result.getInt("DEPARTAMENTO"),result.getInt("JEFE"),result.getInt("SU_JEFE"),result.getInt("PUESTO"));
 	    	  empleados.add(emple);
 	      }
 		
-		
 		}else {
-			 String query = "select * from EMPLEADO where NOMBRE = ?;";
+			 String query = "select * from EMPLEADO where UPPER(NOMBRE) = UPPER(?);";
 		      String[] setStrings = {(campo)};
 		      ResultSet result=bd.Llamada(query, setStrings);
 		      while (result.next()) {
-		    	  //System.out.println(result.getInt("COD_EMPLE")+result.getString("NOMBRE")+result.getString("DEPARTAMENTO")+result.getInt("SUELDO")+result.getInt("JEFE"));
+		    	  System.out.println(result.getInt("COD_EMPLE")+result.getString("NOMBRE")+result.getString("DEPARTAMENTO")+result.getInt("SUELDO")+result.getInt("JEFE"));
 		    	  //emple= new Empleado(result.getInt("COD_EMPLE")+result.getInt("SUELDO")+result.getInt("JEFE")+result.getInt("SU_JEFE")+result.getInt("PUESTO")+result.getString("NOMBRE")+result.getString("DEPARTAMENTO"));
-		    	  emple= new Empleado(result.getInt("COD_EMPLE"));
+		    	  emple= new Empleado(result.getInt("COD_EMPLE"),result.getString("NOMBRE"),result.getInt("SUELDO"),result.getInt("DEPARTAMENTO"),result.getInt("JEFE"),result.getInt("SU_JEFE"),result.getInt("PUESTO"));
 		    	  empleados.add(emple);
 		      }
 		}

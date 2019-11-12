@@ -2,8 +2,8 @@ package obj;
 
 public class Empleado {
 
-	private int codEmple, departamento, sueldo, jefe, suJefe;
-	private String nombre, puesto;
+	private int codEmple, departamento, sueldo, jefe, suJefe, puesto;
+	private String nombre;
 	
 	public int getCodEmple() {
 		return codEmple;
@@ -35,10 +35,10 @@ public class Empleado {
 	public void setSuJefe(int suJefe) {
 		this.suJefe = suJefe;
 	}
-	public String getPuesto() {
+	public int getPuesto() {
 		return puesto;
 	}
-	public void setPuesto(String puesto) {
+	public void setPuesto(int puesto) {
 		this.puesto = puesto;
 	}
 	public String getNombre() {
@@ -47,7 +47,7 @@ public class Empleado {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Empleado(int codEmple, int departamento, int sueldo, int jefe, int suJefe, String nombre, String puesto) {
+	public Empleado(int codEmple, int departamento, int sueldo, int jefe, int suJefe, String nombre, int puesto) {
 		super();
 		this.codEmple = codEmple;
 		this.departamento = departamento;
@@ -57,11 +57,24 @@ public class Empleado {
 		this.nombre = nombre;
 		this.puesto = puesto;
 	}
-	public Empleado(int codEmple) {
+	public Empleado(int codEmple, String nombre, int sueldo, int departamento,int jefe, int suJefe, int puesto ) {
 		
 		this.codEmple = codEmple;
+		this.nombre = nombre;
+		this.sueldo = sueldo;
+		this.departamento = departamento;
+		this.jefe = jefe;
+		this.suJefe = suJefe;
+		this.puesto = puesto;
 	}
 	
+	public String toString(Empleado emple) {
+		
+		String frase="NOMBRE"+this.nombre;
+		return nombre;
+		
+		
+	}
 	
 	
 	

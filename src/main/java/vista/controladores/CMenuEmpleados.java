@@ -50,8 +50,21 @@ public class CMenuEmpleados extends GMenuEmpleados {
 				String valorBuscar = textField.getText().toString();
 				try {
 					empleados=llamada.ObtenerEmpleados(valorCombo, valorBuscar);
+					
 					//textPane.setText(empleados.toString());
-					System.out.println(empleados.get(0));
+					fieldCodEmple.setText(String.valueOf(empleados.get(0).getCodEmple()));
+					fieldNombre.setText(empleados.get(0).getNombre());
+					fieldSueldo.setText(String.valueOf(empleados.get(0).getSueldo()));
+					esJefe.setText(String.valueOf(empleados.get(0).getJefe()));
+					fieldSuJefe.setText(String.valueOf(empleados.get(0).getSuJefe()));
+					fieldPuesto.setText(String.valueOf(empleados.get(0).getPuesto()));
+					fieldDepartamento.setText(String.valueOf(empleados.get(0).getDepartamento()));
+					for(int i=0;i< empleados.size()-1;i++) {
+						
+						
+					}
+					System.out.println(empleados.get(0).getCodEmple()
+							+"\n"+empleados.get(0).getNombre()+"\n"+empleados.get(0).getSueldo());
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

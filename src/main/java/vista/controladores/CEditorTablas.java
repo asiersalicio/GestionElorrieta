@@ -157,7 +157,7 @@ public class CEditorTablas extends GEditorTablas {
 		for(int i = 0;i<celdas.size();i++)
 		{
 			try {
-			Empleado empleado = new Empleado(Integer.parseInt(celdas.get(i).get(0)), Integer.parseInt(celdas.get(i).get(2)),Integer.parseInt(celdas.get(i).get(3)), Integer.parseInt(celdas.get(i).get(4)), Integer.parseInt(celdas.get(i).get(5)), celdas.get(i).get(1), celdas.get(i).get(6));
+			Empleado empleado = new Empleado(Integer.parseInt(celdas.get(i).get(0)), Integer.parseInt(celdas.get(i).get(2)),Integer.parseInt(celdas.get(i).get(3)), Integer.parseInt(celdas.get(i).get(4)), Integer.parseInt(celdas.get(i).get(5)), celdas.get(i).get(1), Integer.parseInt(celdas.get(i).get(6)));
 			empleados.add(empleado);
 			}catch(NullPointerException ex) {} catch (NumberFormatException ex2) {}
 		}

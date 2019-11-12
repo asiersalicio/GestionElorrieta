@@ -16,21 +16,31 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextPane;
+import javax.swing.border.BevelBorder;
 
 public class GMenuEmpleados extends GPestana {
 	public JTextField textField;
 	public JButton nuevo;
 	public JComboBox comboBox ;
 	public JButton buscar ;
-	public JTextPane textPane ;
 	public JPanel menuEmple;
+	public JTextField fieldDepartamento, fieldNombre, fieldCodEmple;
+	public JLabel lblCodDepart, lblNomDepart, lblUbicacion, lblEdificio;
+	public JButton btnAnterior, btnSiguiente;
+	public JTextField fieldSueldo;
+	public JLabel dsf;
+	public JTextField esJefe;
+	public JLabel lblNewLabel;
+	public JTextField fieldSuJefe;
+	public JLabel lblNewLabel_1;
+	public JTextField fieldPuesto;
 
 
 
 	public GMenuEmpleados(JTabbedPane tabbedPane)
 	{
 		super(tabbedPane, "Empleados", new ImageIcon(GMenu.class.getResource("/res/empleados.jpg")));
-		 //JPanel panel = new JPanel();
+		//JPanel panel = new JPanel();
 		 
 		  menuEmple = new JPanel();
 		 GroupLayout gl_panel = new GroupLayout(panel);
@@ -38,15 +48,15 @@ public class GMenuEmpleados extends GPestana {
 		 	gl_panel.createParallelGroup(Alignment.LEADING)
 		 		.addGroup(gl_panel.createSequentialGroup()
 		 			.addContainerGap()
-		 			.addComponent(menuEmple, GroupLayout.PREFERRED_SIZE, 427, GroupLayout.PREFERRED_SIZE)
-		 			.addContainerGap(89, Short.MAX_VALUE))
+		 			.addComponent(menuEmple, GroupLayout.PREFERRED_SIZE, 640, GroupLayout.PREFERRED_SIZE)
+		 			.addContainerGap(142, Short.MAX_VALUE))
 		 );
 		 gl_panel.setVerticalGroup(
 		 	gl_panel.createParallelGroup(Alignment.LEADING)
 		 		.addGroup(gl_panel.createSequentialGroup()
 		 			.addContainerGap()
-		 			.addComponent(menuEmple, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE)
-		 			.addContainerGap(103, Short.MAX_VALUE))
+		 			.addComponent(menuEmple, GroupLayout.PREFERRED_SIZE, 438, GroupLayout.PREFERRED_SIZE)
+		 			.addContainerGap(43, Short.MAX_VALUE))
 		 );
 		 menuEmple.setLayout(null);
 		 
@@ -72,10 +82,90 @@ public class GMenuEmpleados extends GPestana {
 		 buscar.setBounds(288, 62, 89, 23);
 		 menuEmple.add(buscar);
 		 
-		  textPane = new JTextPane();
-		 textPane.setBounds(65, 109, 292, 110);
-		 menuEmple.add(textPane);
+		 JPanel panel_1 = new JPanel();
+		 panel_1.setBounds(47, 94, 511, 333);
+		 menuEmple.add(panel_1);
 		 panel.setLayout(gl_panel);
+		 panel_1.setLayout(null);
+			
+			fieldDepartamento = new JTextField();
+			fieldDepartamento.setEditable(false);
+			fieldDepartamento.setBounds(207, 84, 160, 20);
+			panel_1.add(fieldDepartamento);
+			fieldDepartamento.setColumns(10);
+			
+			fieldNombre = new JTextField();
+			fieldNombre.setEditable(false);
+			fieldNombre.setBounds(207, 54, 160, 20);
+			panel_1.add(fieldNombre);
+			fieldNombre.setColumns(10);
+			
+			fieldCodEmple = new JTextField();
+			fieldCodEmple.setEditable(false);
+			fieldCodEmple.setBounds(207, 23, 160, 20);
+			panel_1.add(fieldCodEmple);
+			fieldCodEmple.setColumns(10);
+			
+			lblCodDepart = new JLabel("C\u00F3digo empreado");
+			lblCodDepart.setBounds(30, 26, 125, 14);
+			panel_1.add(lblCodDepart);
+			
+			lblNomDepart = new JLabel("Nombre del empleado");
+			lblNomDepart.setBounds(30, 59, 167, 14);
+			panel_1.add(lblNomDepart);
+			
+			lblUbicacion = new JLabel("Sueldo");
+			lblUbicacion.setBounds(30, 118, 167, 14);
+			panel_1.add(lblUbicacion);
+			
+			lblEdificio = new JLabel("Departamento");
+			lblEdificio.setBounds(30, 90, 167, 14);
+			panel_1.add(lblEdificio);
+			
+			btnAnterior = new JButton("Anterior");
+			btnAnterior.setBounds(94, 265, 89, 23);
+			panel_1.add(btnAnterior);
+			
+			btnSiguiente = new JButton("Siguiente");
+			btnSiguiente.setBounds(193, 265, 89, 23);
+			panel_1.add(btnSiguiente);
+			
+			fieldSueldo = new JTextField();
+			fieldSueldo.setEditable(false);
+			fieldSueldo.setBounds(207, 115, 86, 20);
+			panel_1.add(fieldSueldo);
+			fieldSueldo.setColumns(10);
+			
+			dsf = new JLabel("Es Jefe");
+			dsf.setBounds(30, 155, 46, 14);
+			panel_1.add(dsf);
+			
+			esJefe = new JTextField();
+			esJefe.setEditable(false);
+			esJefe.setBounds(207, 152, 86, 20);
+			panel_1.add(esJefe);
+			esJefe.setColumns(10);
+			
+			lblNewLabel = new JLabel("Su jefe");
+			lblNewLabel.setBounds(30, 186, 46, 14);
+			panel_1.add(lblNewLabel);
+			
+			fieldSuJefe = new JTextField();
+			fieldSuJefe.setEditable(false);
+			fieldSuJefe.setBounds(207, 183, 86, 20);
+			panel_1.add(fieldSuJefe);
+			fieldSuJefe.setColumns(10);
+			
+			lblNewLabel_1 = new JLabel("Puesto");
+			lblNewLabel_1.setBounds(30, 221, 46, 14);
+			panel_1.add(lblNewLabel_1);
+			
+			fieldPuesto = new JTextField();
+			fieldPuesto.setEditable(false);
+			fieldPuesto.setBounds(207, 221, 86, 20);
+			panel_1.add(fieldPuesto);
+			fieldPuesto.setColumns(10);
+			panel.setLayout(gl_panel);
 		
 	}
 }
