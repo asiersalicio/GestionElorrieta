@@ -181,7 +181,7 @@ public class Llamadas extends Main {
 	public Puesto ObtenerPuesto(int codigo) throws SQLException {
 		Puesto puesto;
 		
-		String query = "select * from PUESTO where COD_PUESTO = ?;";
+		String query = "select * from PUESTOS where COD_PUESTO = ?;";
 		String[] setStrings = {(Integer.toString(codigo))};
 		ResultSet result=bd.Llamada(query, setStrings);
 		puesto=new Puesto(result.getInt("COD_PUESTO"), result.getString("NOMBRE"));
