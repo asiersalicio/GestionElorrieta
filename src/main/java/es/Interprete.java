@@ -258,10 +258,13 @@ public class Interprete extends Main {
 	private String obtenerCodNombreEmple(int num)
 	{
 		Empleado emple;
-		try {
-			emple=bd.llamadas.ObtenerEmpleado(num);
+		emple=bd.llamadas.ObtenerEmpleado(num);
+		if(emple!=null)
+		{
 			return "("+emple.getCodEmple() +") " + emple.getNombre();
-		} catch (SQLException e) {
+		}
+		else
+		{
 			return "(" + num + ") Desconocido";
 		}
 	}
@@ -269,10 +272,13 @@ public class Interprete extends Main {
 	private String obtenerCodNombrePuesto(int num)
 	{
 		Puesto puesto;
-		try {
-			puesto=bd.llamadas.ObtenerPuesto(num);
+		puesto=bd.llamadas.ObtenerPuesto(num);
+		if(puesto!=null)
+		{
 			return "(" + puesto.getCodPuesto() + ") " + puesto.getNombre();
-		} catch (SQLException e) {
+		}
+		else
+		{
 			return "(" + num + ") Desconocido";
 		}
 	}

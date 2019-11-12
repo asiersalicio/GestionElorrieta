@@ -167,24 +167,38 @@ public class Llamadas extends Main {
 		}
 
 	
-	public Empleado ObtenerEmpleado(int codigo) throws SQLException
+	public Empleado ObtenerEmpleado(int codigo)
 	{
 		Empleado emple;
 		
 		String query = "select * from EMPLEADO where COD_EMPLE = ?;";
 		String[] setStrings = {(Integer.toString(codigo))};
 		ResultSet result=bd.Llamada(query, setStrings);
-		emple= new Empleado(result.getInt("COD_EMPLE"), result.getString("NOMBRE"), result.getInt("SUELDO"), result.getInt("DEPARTAMENTO"), result.getInt("JEFE"), result.getInt("SU_JEFE"), result.getInt("PUESTO"));
+		try {
+			if(result.next())
+				emple= new Empleado(result.getInt("COD_EMPLE"), result.getString("NOMBRE"), result.getInt("SUELDO"), result.getInt("DEPARTAMENTO"), result.getInt("JEFE"), result.getInt("SU_JEFE"), result.getInt("PUESTO"));
+			else
+				return null;
+		} catch (SQLException e) {
+			return null;
+		}
 		return emple;
 	}
 	
-	public Puesto ObtenerPuesto(int codigo) throws SQLException {
+	public Puesto ObtenerPuesto(int codigo) {
 		Puesto puesto;
 		
 		String query = "select * from PUESTOS where COD_PUESTO = ?;";
 		String[] setStrings = {(Integer.toString(codigo))};
 		ResultSet result=bd.Llamada(query, setStrings);
-		puesto=new Puesto(result.getInt("COD_PUESTO"), result.getString("NOMBRE"));
+		try {
+			if(result.next())
+				puesto=new Puesto(result.getInt("COD_PUESTO"), result.getString("NOMBRE"));
+			else
+				return null;
+		} catch (SQLException e) {
+			return null;
+		}
 		return puesto;
 	}
 	
