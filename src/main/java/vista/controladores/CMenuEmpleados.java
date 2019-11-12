@@ -5,12 +5,10 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JTabbedPane;
 
 import bd.Llamadas;
 import obj.Empleado;
-import vista.graficos.GMenuDepartamentos;
 import vista.graficos.GMenuEmpleados;
 
 public class CMenuEmpleados extends GMenuEmpleados {

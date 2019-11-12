@@ -4,11 +4,11 @@ import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import vista.Vista;
-import javax.swing.JLabel;
 
 public class GMenu extends Vista {
 	

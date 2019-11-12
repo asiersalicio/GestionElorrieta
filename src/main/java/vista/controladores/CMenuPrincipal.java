@@ -1,8 +1,5 @@
 package vista.controladores;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JTabbedPane;
 
 import vista.graficos.GMenuPrincipal;

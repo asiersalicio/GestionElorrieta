@@ -17,8 +17,6 @@ import javax.swing.JToolBar;
 
 import app.Main;
 import obj.Celda;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class GEditorTablas extends Main {
 

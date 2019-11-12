@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -182,6 +181,8 @@ public class Interprete extends Main {
 	
 	public void guardarInformeHTML(File archivo, ArrayList<Departamento> departamentos, ArrayList<Empleado> empleados)
 	{
+		if(archivo!=null)
+		{
 		String htmlFinal="";
 		String head = "";
 		String body = "";
@@ -191,9 +192,15 @@ public class Interprete extends Main {
 		head = "<!DOCTYPE html><html><head><title>Informe</title></head>";
 		body = "<body><h1>Informe</h1><p>";
 		
-		tablaDepartamentos=generarHTMLTablaDepart(departamentos);
-		tablaEmpleados=generarHTMLTablaEmple(empleados);
-		
+		if(departamentos.size()>0)
+		{
+			tablaDepartamentos=generarHTMLTablaDepart(departamentos);
+		}
+		if(empleados.size()>0)
+		{
+			tablaEmpleados=generarHTMLTablaEmple(empleados);
+		}
+
 		body+=tablaDepartamentos + tablaEmpleados;
 		
 		
@@ -203,6 +210,7 @@ public class Interprete extends Main {
 		writer.write(htmlFinal);
 		writer.close();
 		}catch(IOException e) {e.printStackTrace();}
+	}
 	}
 	
 	private String generarHTMLTablaDepart(ArrayList<Departamento> departamentos)
