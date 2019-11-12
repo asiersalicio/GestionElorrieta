@@ -20,7 +20,7 @@ public class GMenuInformes extends GPestana {
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				es.interprete.guardarInformeHTML(new File(".\\Informe.html"), bd.llamadas.ObtenerDepartamentos(), null);
+				es.interprete.guardarInformeHTML(new File(".\\Informe.html"), bd.llamadas.obtenerDepartamentos(), bd.llamadas.obtenerEmpleados());
 			}
 		});
 		GroupLayout gl_panel = new GroupLayout(panel);

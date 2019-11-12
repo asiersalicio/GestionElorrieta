@@ -6,12 +6,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import app.Main;
 import obj.Departamento;
 import obj.Empleado;
+import obj.Puesto;
 
 public class Interprete extends Main {
 
@@ -184,18 +186,15 @@ public class Interprete extends Main {
 		String head = "";
 		String body = "";
 		String tablaDepartamentos = "";
+		String tablaEmpleados = "";
 		
 		head = "<!DOCTYPE html><html><head><title>Informe</title></head>";
 		body = "<body><h1>Informe</h1><p>";
-		tablaDepartamentos="<table border='1'>";
-		for(int y=0;y<departamentos.size();y++)
-		{
-			Departamento depart = departamentos.get(y);
-			tablaDepartamentos+="<tr><td>" + depart.getCodDepart() +  "</td><td>" + depart.getNombre() +  "</td><td>" + depart.getEdificio() +  "</td><td>" + depart.getUbicacion() +  "</td></tr>";
-		}
-		tablaDepartamentos+="</table>";
 		
-		body+=tablaDepartamentos;
+		tablaDepartamentos=generarHTMLTablaDepart(departamentos);
+		tablaEmpleados=generarHTMLTablaEmple(empleados);
+		
+		body+=tablaDepartamentos + tablaEmpleados;
 		
 		
 		htmlFinal = head + body + "</body>";
@@ -204,6 +203,78 @@ public class Interprete extends Main {
 		writer.write(htmlFinal);
 		writer.close();
 		}catch(IOException e) {e.printStackTrace();}
+	}
+	
+	private String generarHTMLTablaDepart(ArrayList<Departamento> departamentos)
+	{
+		try {
+		String tablaDepartamentos;
+		tablaDepartamentos="<table border='1'>";
+		tablaDepartamentos+="<tr><th>Cod. Depart</th><th>Nombre</th><th>Edificio</th><th>Ubicación</th></tr>";
+		for(int y=0;y<departamentos.size();y++)
+		{
+			Departamento depart = departamentos.get(y);
+			tablaDepartamentos+="<tr><td>" + depart.getCodDepart() +  "</td><td>" + depart.getNombre() +  "</td><td>" + depart.getEdificio() +  "</td><td>" + depart.getUbicacion() +  "</td></tr>";
+		}
+		tablaDepartamentos+="</table>";
+		return tablaDepartamentos;
+		}
+		catch (NullPointerException ex)
+		{
+			return "<p>No existen datos de departamentos</p>";
+		}
+		
+	}
+	
+	private String generarHTMLTablaEmple(ArrayList<Empleado> empleados)
+	{
+		try {
+		String tablaEmpleados;
+		tablaEmpleados="<table border='1'>";
+		tablaEmpleados+="<tr><th>Cod. Empleado</th><th>Nombre</th><th>Sueldo</th><th>Jefe</th><th>Su jefe</th><th>Puesto</th></tr>";
+		for(int y=0;y<empleados.size();y++)
+		{
+			Empleado empleado = empleados.get(y);
+			tablaEmpleados+="<tr><td>" + empleado.getCodEmple() +  "</td><td>" + empleado.getNombre() +  "</td><td>" + empleado.getSueldo() +  "</td><td>" + ceroNoUnoSi(empleado.getJefe()) +  "</td><td>" + obtenerCodNombreEmple(empleado.getSuJefe()) +  "</td><td>" + obtenerCodNombrePuesto(empleado.getPuesto()) +  "</td></tr>";
+		}
+		tablaEmpleados+="</table>";
+		return tablaEmpleados;
+		}
+		catch(NullPointerException ex)
+		{
+			return "<p>No existen datos de empleados</p>";
+		}
+		
+	}
+	
+	private String ceroNoUnoSi(int num)
+	{
+		if(num==1)
+			return "Sí";
+		else
+			return "No";
+	}
+	
+	private String obtenerCodNombreEmple(int num)
+	{
+		Empleado emple;
+		try {
+			emple=bd.llamadas.ObtenerEmpleado(num);
+			return "("+emple.getCodEmple() +") " + emple.getNombre();
+		} catch (SQLException e) {
+			return "(" + num + ") Desconocido";
+		}
+	}
+	
+	private String obtenerCodNombrePuesto(int num)
+	{
+		Puesto puesto;
+		try {
+			puesto=bd.llamadas.ObtenerPuesto(num);
+			return "(" + puesto.getCodPuesto() + ") " + puesto.getNombre();
+		} catch (SQLException e) {
+			return "(" + num + ") Desconocido";
+		}
 	}
 	
 	
