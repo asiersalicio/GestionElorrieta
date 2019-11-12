@@ -9,13 +9,8 @@ import java.util.ArrayList;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import app.Main;
 import obj.Reloj;
 import vista.graficos.GMenu;
-import vista.graficos.GMenuDepartamentos;
-import vista.graficos.GMenuEmpleados;
-import vista.graficos.GMenuInformes;
-import vista.graficos.GMenuPrincipal;
 import vista.graficos.GPestana;
 
 public class CMenu extends GMenu {

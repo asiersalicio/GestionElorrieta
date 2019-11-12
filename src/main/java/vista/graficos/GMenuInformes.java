@@ -1,42 +1,54 @@
 package vista.graficos;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.awt.event.ActionEvent;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JCheckBox;
 
 public class GMenuInformes extends GPestana {
 
+	public JButton btnGenerarInforme;
+	public JCheckBox chckbxEmpleados;
+	public JCheckBox chckbxDepartamentos;
 	
 	public GMenuInformes(JTabbedPane tabbedPane) {
 		super(tabbedPane, "Informes", new ImageIcon(GMenu.class.getResource("/res/informes.jpg")));
 		//JPanel panel = new JPanel();
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				es.interprete.guardarInformeHTML(new File(".\\Informe.html"), bd.llamadas.ObtenerDepartamentos(), null);
-			}
-		});
+		btnGenerarInforme = new JButton("Generar Informe");
+		
+		
+		chckbxEmpleados = new JCheckBox("Empleados");
+		
+		chckbxDepartamentos = new JCheckBox("Departamentos");
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(160)
-					.addComponent(btnNewButton)
-					.addContainerGap(201, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap(540, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(chckbxDepartamentos)
+						.addComponent(chckbxEmpleados)
+						.addComponent(btnGenerarInforme))
+					.addGap(32))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(92)
-					.addComponent(btnNewButton)
-					.addContainerGap(185, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap(354, Short.MAX_VALUE)
+					.addComponent(chckbxDepartamentos)
+					.addGap(18)
+					.addComponent(chckbxEmpleados)
+					.addGap(18)
+					.addComponent(btnGenerarInforme)
+					.addGap(28))
 		);
 		panel.setLayout(gl_panel);
 	}

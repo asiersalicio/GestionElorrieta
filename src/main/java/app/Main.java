@@ -11,9 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Dialogos.Consola;
 import bd.BD;
 import es.Es;
-import obj.CeldaTitulo;
 import vista.Vista;
-import vista.controladores.CEditorTablas;
 
 public class Main {
 	

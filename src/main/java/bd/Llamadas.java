@@ -4,11 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-
-import com.mysql.jdbc.PreparedStatement;
-
 import app.Main;
 import obj.Departamento;
 import obj.Empleado;
@@ -135,7 +130,6 @@ public class Llamadas extends Main {
 
 	public ArrayList<Empleado> ObtenerEmpleados( String buscar, String campo) throws SQLException
 	{
-		 System.out.println("ENTRA");
 		 ArrayList <Empleado> empleados = new ArrayList<Empleado>();
 		 Empleado emple;
 		if (buscar.equals("Código")) {
@@ -173,7 +167,42 @@ public class Llamadas extends Main {
 		}
 
 	
-	public ArrayList<Departamento> ObtenerDepartamentos()
+	public Empleado ObtenerEmpleado(int codigo)
+	{
+		Empleado emple;
+		
+		String query = "select * from EMPLEADO where COD_EMPLE = ?;";
+		String[] setStrings = {(Integer.toString(codigo))};
+		ResultSet result=bd.Llamada(query, setStrings);
+		try {
+			if(result.next())
+				emple= new Empleado(result.getInt("COD_EMPLE"), result.getString("NOMBRE"), result.getInt("SUELDO"), result.getInt("DEPARTAMENTO"), result.getInt("JEFE"), result.getInt("SU_JEFE"), result.getInt("PUESTO"));
+			else
+				return null;
+		} catch (SQLException e) {
+			return null;
+		}
+		return emple;
+	}
+	
+	public Puesto ObtenerPuesto(int codigo) {
+		Puesto puesto;
+		
+		String query = "select * from PUESTOS where COD_PUESTO = ?;";
+		String[] setStrings = {(Integer.toString(codigo))};
+		ResultSet result=bd.Llamada(query, setStrings);
+		try {
+			if(result.next())
+				puesto=new Puesto(result.getInt("COD_PUESTO"), result.getString("NOMBRE"));
+			else
+				return null;
+		} catch (SQLException e) {
+			return null;
+		}
+		return puesto;
+	}
+	
+	public ArrayList<Departamento> obtenerDepartamentos()
 	{
 		String query = "SELECT * FROM DEPARTAMENTO";
 		String[] setStrings = {};
@@ -216,4 +245,25 @@ public class Llamadas extends Main {
 	      else
 	    	  return true;
 	}
+	
+	public ArrayList<Empleado> obtenerEmpleados()
+	{
+		String query = "SELECT * FROM EMPLEADO";
+		String[] setStrings = {};
+		ResultSet result=bd.Llamada(query, setStrings);	
+		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+		try {
+			while(result.next())
+			{
+				empleados.add(new Empleado(result.getInt("COD_EMPLE"), result.getInt("DEPARTAMENTO"), result.getInt("SUELDO"), result.getInt("JEFE"), result.getInt("SU_JEFE"), result.getString("NOMBRE"), result.getInt("PUESTO")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return empleados;
+	}
+
+
+	
+	
 }
