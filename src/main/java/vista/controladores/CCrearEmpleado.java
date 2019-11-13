@@ -32,7 +32,7 @@ public class CCrearEmpleado extends GCrearEmpleado {
 		if(ComprobarCampos())
 		{
 			//int codEmple, String nombre, int sueldo, int departamento,int jefe, int suJefe, int puesto
-			Empleado empleado = new Empleado(0, fieldNombEmple.getText(), Integer.parseInt(comboDepart.getSelectedItem().toString()), Integer.parseInt(fieldSueldo.getText()), Integer.parseInt(comboJefe.getSelectedItem().toString()), Integer.parseInt(comboSuJefe.getSelectedItem().toString()), Integer.parseInt(comboPuesto.getSelectedItem().toString()));
+			Empleado empleado = new Empleado(0, fieldNombEmple.getText(), Integer.parseInt(fieldSueldo.getText()),  Integer.parseInt(comboDepart.getSelectedItem().toString()), Integer.parseInt(comboJefe.getSelectedItem().toString()), Integer.parseInt(comboSuJefe.getSelectedItem().toString()), Integer.parseInt(comboPuesto.getSelectedItem().toString()));
 			ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 			empleados.add(empleado);
 			if(bd.llamadas.InsertarEmpleado2(empleados))
