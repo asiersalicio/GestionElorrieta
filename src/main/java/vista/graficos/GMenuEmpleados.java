@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class GMenuEmpleados extends GPestana {
 	public JTextField textField;
@@ -37,8 +38,10 @@ public class GMenuEmpleados extends GPestana {
 	{
 		super(tabbedPane, "Empleados", new ImageIcon(GMenu.class.getResource("/res/empleados.jpg")));
 		//JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		 
 		  menuEmple = new JPanel();
+		  menuEmple.setBackground(new Color(255, 255, 255));
 		 GroupLayout gl_panel = new GroupLayout(panel);
 		 gl_panel.setHorizontalGroup(
 		 	gl_panel.createParallelGroup(Alignment.LEADING)
@@ -79,6 +82,7 @@ public class GMenuEmpleados extends GPestana {
 		 menuEmple.add(buscar);
 		 
 		 JPanel panel_1 = new JPanel();
+		 panel_1.setBackground(new Color(255, 255, 255));
 		 panel_1.setBounds(47, 94, 511, 333);
 		 menuEmple.add(panel_1);
 		 panel.setLayout(gl_panel);
