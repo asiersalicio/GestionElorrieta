@@ -189,7 +189,30 @@ public class Interprete extends Main {
 		String tablaDepartamentos = "";
 		String tablaEmpleados = "";
 		
-		head = "<!DOCTYPE html><html><head><title>Informe</title></head>";
+		head = "<!DOCTYPE html><html><head><title>Informe</title>	<style>\r\n" + 
+				"	table{\r\n" + 
+				"		margin:auto;\r\n" + 
+				"		padding:10px;\r\n" + 
+				"		cellspacing:0px;\r\n" + 
+				"		border:none;\r\n" + 
+				"		border-collapse:collapse;\r\n" + 
+				"		margin-bottom: 20px;\r\n" + 
+				"		text-align: center;\r\n" + 
+				"	}\r\n" + 
+				"	tr:nth-child(odd){\r\n" + 
+				"		background-color:lightblue;\r\n" + 
+				"	}\r\n" + 
+				"	tr:nth-child(even){\r\n" + 
+				"		background-color:lightgreen;\r\n" + 
+				"	}\r\n" + 
+				"	td,th{\r\n" + 
+				"		border: 2px solid black;\r\n" + 
+				"	}\r\n" + 
+				"	h1{		\r\n" + 
+				"		text-align:center;\r\n" +  
+				"	}\r\n" + 
+				"\r\n" + 
+				"	</style></head>";
 		body = "<body><h1>Informe</h1><p>";
 		
 		if(departamentos.size()>0)
