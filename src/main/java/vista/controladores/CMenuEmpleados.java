@@ -5,9 +5,12 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import bd.Llamadas;
+import es.Interprete;
 import obj.Empleado;
 import vista.graficos.GMenuEmpleados;
 
@@ -49,6 +52,7 @@ public class CMenuEmpleados extends GMenuEmpleados {
 		});
 		buscar.addActionListener(new ActionListener() {
 			Llamadas llamada= new Llamadas();
+		
 			ArrayList <Empleado> empleados = new ArrayList<Empleado>();
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -64,7 +68,7 @@ public class CMenuEmpleados extends GMenuEmpleados {
 					esJefe.setText(String.valueOf(empleados.get(0).getJefe()));
 					fieldSuJefe.setText(String.valueOf(empleados.get(0).getSuJefe()));
 					fieldPuesto.setText(String.valueOf(empleados.get(0).getPuesto()));
-					fieldDepartamento.setText(String.valueOf(empleados.get(0).getDepartamento()));
+					fieldDepartamento.setText(llamada.stringDepart(empleados.get(0).getDepartamento()));
 					for(int i=0;i< empleados.size()-1;i++) {
 						
 						
@@ -74,6 +78,9 @@ public class CMenuEmpleados extends GMenuEmpleados {
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch(IndexOutOfBoundsException e3)
+				{
+					JOptionPane.showMessageDialog(new JFrame(), "No hay nada", "Aviso", JOptionPane.WARNING_MESSAGE);
 				}
 				
 				

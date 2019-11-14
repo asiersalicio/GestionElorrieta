@@ -262,7 +262,24 @@ public class Llamadas extends Main {
 		}
 		return empleados;
 	}
-
+	public String stringDepart(int codigo)
+	{
+		String depart = "";
+		String query = "SELECT nombre FROM departamento where cod_depart="+codigo+";";
+		String[] setStrings = {};
+		ResultSet result=bd.Llamada(query, setStrings);	
+		
+		try {
+			while(result.next())
+			{
+				 depart=result.getString("nombre");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return depart;
+	}
+	
 
 	
 	

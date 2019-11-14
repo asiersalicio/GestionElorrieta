@@ -292,6 +292,7 @@ public class Interprete extends Main {
 	}
 	
 	
+	
 	private void MostrarConsola(String mensaje)
 	{
 		System.out.println("[Info](Interprete Archivos): " + mensaje);
