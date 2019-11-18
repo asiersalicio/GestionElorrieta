@@ -43,7 +43,11 @@ public class Llamadas extends Main {
 	    	  return false;
 	      }
 	      else
+	      {
+	    	  bd.CerrarConexion();
 	    	  return true;
+	      }
+	    	  
 	}
 	
 	private void MostrarConsola(String mensaje)
@@ -81,7 +85,11 @@ public class Llamadas extends Main {
 	    	  return false;
 	      }
 	      else
+	      {
+	    	  bd.CerrarConexion();
 	    	  return true;
+	      }
+	    	  
 	}
 
 	public boolean InsertarEmpleado(ArrayList<Empleado> arrayList) {
@@ -109,7 +117,11 @@ public class Llamadas extends Main {
 	    	  return false;
 	      }
 	      else
+	      {
+	    	  bd.CerrarConexion();
 	    	  return true;
+	      }
+	    	  
 	}
 	
 	public Departamento CargarDepartamento( int codDepart)
@@ -120,7 +132,10 @@ public class Llamadas extends Main {
 		try {
 			if(result.next())
 			{
-				return new Departamento(result.getInt("COD_DEPART"), result.getInt("EDIFICIO"), result.getString("NOMBRE"), result.getString("UBICACION"));
+				
+				Departamento depart = new Departamento(result.getInt("COD_DEPART"), result.getInt("EDIFICIO"), result.getString("NOMBRE"), result.getString("UBICACION"));
+				bd.CerrarConexion();
+				return depart; 
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -159,7 +174,7 @@ public class Llamadas extends Main {
 		    	  empleados.add(emple);
 		      }
 		}
-			
+		bd.CerrarConexion();
 		return empleados;
 	      
 	      
@@ -178,10 +193,16 @@ public class Llamadas extends Main {
 			if(result.next())
 				emple= new Empleado(result.getInt("COD_EMPLE"), result.getString("NOMBRE"), result.getInt("SUELDO"), result.getInt("DEPARTAMENTO"), result.getInt("JEFE"), result.getInt("SU_JEFE"), result.getInt("PUESTO"));
 			else
+			{
+				bd.CerrarConexion();
 				return null;
+			}
+				
 		} catch (SQLException e) {
+			bd.CerrarConexion();
 			return null;
 		}
+		bd.CerrarConexion();
 		return emple;
 	}
 	
@@ -197,8 +218,10 @@ public class Llamadas extends Main {
 			else
 				return null;
 		} catch (SQLException e) {
+			bd.CerrarConexion();
 			return null;
 		}
+		bd.CerrarConexion();
 		return puesto;
 	}
 	
@@ -214,8 +237,10 @@ public class Llamadas extends Main {
 				departamentos.add(new Departamento(result.getInt("COD_DEPART"), result.getInt("EDIFICIO"), result.getString("NOMBRE"), result.getString("UBICACION")));
 			}
 		} catch (SQLException e) {
+			bd.CerrarConexion();
 			e.printStackTrace();
 		}
+		bd.CerrarConexion();
 		return departamentos;
 	}
 	public boolean InsertarEmpleado2(ArrayList<Empleado> arrayList) {
@@ -240,10 +265,15 @@ public class Llamadas extends Main {
 	      if(error)
 	      {
 	    	  MostrarError("Formato de archivo incorrecto, compruebe si el tipo de dato es correcto");
+	    	  bd.CerrarConexion();
 	    	  return false;
 	      }
 	      else
+	      {
+	    	  bd.CerrarConexion();
 	    	  return true;
+	      }
+	    	  
 	}
 	
 	public ArrayList<Empleado> obtenerEmpleados()
@@ -258,8 +288,10 @@ public class Llamadas extends Main {
 				empleados.add(new Empleado(result.getInt("COD_EMPLE"), result.getInt("DEPARTAMENTO"), result.getInt("SUELDO"), result.getInt("JEFE"), result.getInt("SU_JEFE"), result.getString("NOMBRE"), result.getInt("PUESTO")));
 			}
 		} catch (SQLException e) {
+			bd.CerrarConexion();
 			e.printStackTrace();
 		}
+		bd.CerrarConexion();
 		return empleados;
 	}
 	public String stringDepart(int codigo)
@@ -275,8 +307,10 @@ public class Llamadas extends Main {
 				 depart=result.getString("nombre");
 			}
 		} catch (SQLException e) {
+			bd.CerrarConexion();
 			e.printStackTrace();
 		}
+		bd.CerrarConexion();
 		return depart;
 	}
 	
