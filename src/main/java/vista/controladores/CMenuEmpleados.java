@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import bd.Llamadas;
-import es.Interprete;
 import obj.Empleado;
 import vista.graficos.GMenuEmpleados;
 

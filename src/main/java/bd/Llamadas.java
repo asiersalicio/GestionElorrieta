@@ -297,8 +297,8 @@ public class Llamadas extends Main {
 	public String stringDepart(int codigo)
 	{
 		String depart = "";
-		String query = "SELECT nombre FROM departamento where cod_depart="+codigo+";";
-		String[] setStrings = {};
+		String query = "SELECT nombre FROM DEPARTAMENTO where COD_DEPART= ?;";
+		String[] setStrings = {Integer.toString(codigo)};
 		ResultSet result=bd.Llamada(query, setStrings);	
 		
 		try {

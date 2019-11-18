@@ -1,5 +1,7 @@
 package vista.graficos;
 
+import java.awt.Color;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
@@ -11,7 +13,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.BevelBorder;
-import java.awt.Color;
 
 public class GMenuDepartamentos extends GPestana {
 	public JTextField fieldEdificio, fieldNomDepart, fieldCodDepart;

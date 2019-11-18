@@ -1,17 +1,13 @@
 package vista.graficos;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
+import java.awt.Color;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.JCheckBox;
-import java.awt.Color;
+import javax.swing.JTabbedPane;
 
 public class GMenuInformes extends GPestana {
 

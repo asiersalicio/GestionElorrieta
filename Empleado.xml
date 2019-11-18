@@ -1,0 +1,60 @@
+<empleados>
+
+	<empleado>
+		<cod>1</cod>
+		<nombre>PABLO CALLEJO OLIVER</nombre>
+		<departamento>1</departamento>
+		<sueldo>2500</sueldo>
+		<jefe>1</jefe>
+		<su_jefe>-1</su_jefe>
+		<puesto>1</puesto>
+	</empleado>
+	<empleado>
+		<cod>2</cod>
+		<nombre>JOSE RAMON DE FRUTOS LOZANO</nombre>
+		<departamento>1</departamento>
+		<sueldo>1500</sueldo>
+		<jefe>0</jefe>
+		<su_jefe>3</su_jefe>
+		<puesto>3</puesto>
+	</empleado>
+	<empleado>
+		<cod>3</cod>
+		<nombre>ANA ISABEL GIMENO SOLSONA</nombre>
+		<departamento>1</departamento>
+		<sueldo>1700</sueldo>
+		<jefe>1</jefe>
+		<su_jefe>1</su_jefe>
+		<puesto>2</puesto>
+	</empleado>
+	<empleado>
+		<cod>4</cod>
+		<nombre>LAURA MONTA CARA</nombre>
+		<departamento>2</departamento>
+		<sueldo>1000</sueldo>
+		<jefe>1</jefe>
+		<su_jefe>1</su_jefe>
+		<puesto>2</puesto>
+	</empleado>
+	<empleado>
+		<cod>5</cod>
+		<nombre>PAULA MATE JAUREGUI</nombre>
+		<departamento>2</departamento>
+		<sueldo>1050</sueldo>
+		<jefe>0</jefe>
+		<su_jefe>4</su_jefe>
+		<puesto>3</puesto>
+	</empleado>
+	<empleado>
+		<cod>6</cod>
+		<nombre>OSCAR LLACER TERAN</nombre>
+		<departamento>3</departamento>
+		<sueldo>2300</sueldo>
+		<jefe>1</jefe>
+		<su_jefe>1</su_jefe>
+		<puesto>3</puesto>
+	</empleado>
+
+
+
+</empleados>

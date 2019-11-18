@@ -1,8 +1,9 @@
 package vista.graficos;
 
+import java.awt.Font;
+
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class GAcercaDe {

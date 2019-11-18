@@ -1,6 +1,8 @@
 
 package vista.graficos;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Window.Type;
 
 import javax.swing.DefaultComboBoxModel;
@@ -12,8 +14,6 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 import app.Main;
-import java.awt.Color;
-import java.awt.Font;
 
 public class GCrearEmpleado extends Main{
 

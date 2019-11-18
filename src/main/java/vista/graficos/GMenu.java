@@ -1,6 +1,7 @@
 package vista.graficos;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import vista.Vista;
-import java.awt.Color;
 
 public class GMenu extends Vista {
 	

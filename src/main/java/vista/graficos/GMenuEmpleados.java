@@ -1,5 +1,6 @@
 package vista.graficos;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import java.awt.Color;
 
 public class GMenuEmpleados extends GPestana {
 	public JTextField textField;
