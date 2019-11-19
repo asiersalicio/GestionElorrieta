@@ -41,7 +41,7 @@ public class CMenu extends GMenu {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MostrarMensaje("Cerrando aplicaciï¿½n");
+				MostrarMensaje("Cerrando aplicación");
 				CerrarAplicacion();
 				
 			}
@@ -50,7 +50,7 @@ public class CMenu extends GMenu {
 		ventana.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-            	MostrarMensaje("Cerrando aplicaciï¿½n");
+            	MostrarMensaje("Cerrando aplicación");
 				CerrarAplicacion();
             }
         });

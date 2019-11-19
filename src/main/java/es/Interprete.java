@@ -319,10 +319,12 @@ public class Interprete extends Main {
 	private void MostrarConsola(String mensaje)
 	{
 		System.out.println("[Info](Interprete Archivos): " + mensaje);
+		GuardarLog("[Info](Interprete Archivos): " + mensaje);
 	}
 	
 	private void MostrarError(String mensaje)
 	{
 		System.err.println("[Error](Interprete Archivos): " + mensaje);
+		GuardarLog("[Error](Interprete Archivos): " + mensaje);
 	}
 }

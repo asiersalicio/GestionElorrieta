@@ -53,11 +53,13 @@ public class Llamadas extends Main {
 	private void MostrarConsola(String mensaje)
 	{
 		System.out.println("[Info](Llamadas BD): " + mensaje);
+		GuardarLog("[Info](Llamadas BD): " + mensaje);
 	}
 	
 	private void MostrarError(String mensaje)
 	{
 		System.err.println("[Error](Llamadas BD): " + mensaje);
+		GuardarLog("[Error](Llamadas BD): " + mensaje);
 	}
 
 	public boolean InsertarDepartamentos(ArrayList<Departamento> arrayList) {
@@ -149,8 +151,8 @@ public class Llamadas extends Main {
 		 Empleado emple;
 		if (buscar.equals("Código")) {
 			System.out.println(campo);
-	      String query = "select * from EMPLEADO where COD_EMPLE = ?;";
-	      String[] setStrings = {(campo)};
+	      String query = "select * from EMPLEADO where COD_EMPLE like ?;";
+	      String[] setStrings = {"%"+(campo)+"%"};
 	      ResultSet result=bd.Llamada(query, setStrings);
 	     
 	      while (result.next()) {

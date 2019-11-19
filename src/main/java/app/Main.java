@@ -1,8 +1,11 @@
 package app;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -191,6 +194,21 @@ public class Main {
 	private static void MostrarPantalla(String mensaje)
 	{
 		System.out.println("[Info](Nucleo): " + mensaje);
+		GuardarLog("[Info](Nucleo) " + mensaje);
+	}
+	
+	public static void GuardarLog(String mensaje)
+	{
+		File archivo = new File(".\\log.txt");
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(archivo,true));
+			Calendar now = Calendar.getInstance();
+			bw.write(now.get(Calendar.DAY_OF_MONTH) + "-" + now.get(Calendar.MONTH) + "-" + now.get(Calendar.YEAR) + " " + now.get(Calendar.HOUR) + ":" + now.get(Calendar.MINUTE) + ":" + now.get(Calendar.SECOND) + mensaje + "\n");
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void CerrarAplicacion()

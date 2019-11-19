@@ -111,7 +111,7 @@ public class CIniciarSesion extends GIniciarSesion{
 	    ventana.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-            	MostrarMensaje("Cerrando aplicaciï¿½n");
+            	MostrarMensaje("Cerrando aplicación");
 				CerrarAplicacion();
             }
         });
@@ -138,6 +138,7 @@ public class CIniciarSesion extends GIniciarSesion{
 	public void MostrarMensaje(String mensaje)
 	{
 		System.out.println("[Info](Iniciar sesion) " + mensaje);
+		GuardarLog("[Info](Iniciar sesion) " + mensaje);
 	}
 	
 	public void IniciarSesion()
@@ -151,7 +152,8 @@ public class CIniciarSesion extends GIniciarSesion{
 				ventana.dispose();
 				break;
 			case 1: 
-				lblError.setText("Usuario o contraseÃ±a incorrecta");
+				lblError.setText("Usuario o contraseña incorrecta");
+				GuardarLog("Usuario o contraseña incorrecta");
 				lblError.setVisible(true);
 				break;
 			case 2:

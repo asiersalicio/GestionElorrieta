@@ -115,11 +115,13 @@ public class BD extends Main {
 	private void MostrarConsola(String mensaje)
 	{
 		System.out.println("[Info](Conexión BD): " + mensaje);
+		GuardarLog("[Info](Conexión BD): " + mensaje);
 	}
 	
 	private void MostrarError(String mensaje)
 	{
 		System.err.println("[Error](Conexión BD): " + mensaje);
+		GuardarLog("[Error](Conexión BD): " + mensaje);
 	}
 
 	public void CerrarConexion() {
