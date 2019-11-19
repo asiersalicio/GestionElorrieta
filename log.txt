@@ -142,3 +142,384 @@
 19-10-2019 9:11:46[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
 19-10-2019 9:11:46[Info](Conexión BD): ¡Conexión exitosa!
 19-10-2019 9:11:46[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:30:19[Info](Nucleo) Iniciando modulo grafico
+19-10-2019 9:30:19[Info](Nucleo) Iniciando modulo E/S
+19-10-2019 9:30:19[Info](Nucleo) Iniciando modulo de datos
+19-10-2019 9:30:21[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:30:21[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:30:22[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:30:22[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:30:22[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:30:22[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:30:22[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:30:22[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:30:22[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:30:22[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:30:29[Info](Nucleo) Orden de cierre recivida
+19-10-2019 9:30:29[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:30:29[Info](Nucleo) Matando proceso principal
+19-10-2019 9:31:59[Info](Nucleo) Iniciando modulo grafico
+19-10-2019 9:31:59[Info](Nucleo) Iniciando modulo E/S
+19-10-2019 9:31:59[Info](Nucleo) Iniciando modulo de datos
+19-10-2019 9:32:2[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:32:2[Error](Conexión BD): No se puede conectar a la base de datos CodErr: (1045) Access denied for user 'admin'@'192.168.101.43' (using password: YES)
+19-10-2019 9:32:2Usuario o contrase�a incorrecta
+19-10-2019 9:32:13[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.23:3306/Elorrieta
+19-10-2019 9:32:15[Error](Conexión BD): No se puede conectar a la base de datos CodErr: (1045) Access denied for user 'admin'@'INFP4A101-21' (using password: YES)
+19-10-2019 9:32:15Usuario o contrase�a incorrecta
+19-10-2019 9:32:22[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:32:22[Error](Conexión BD): No se puede conectar a la base de datos CodErr: (1045) Access denied for user 'admin'@'192.168.101.43' (using password: YES)
+19-10-2019 9:32:22Usuario o contrase�a incorrecta
+19-10-2019 9:32:41[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.222:3306/Elorrieta
+19-10-2019 9:33:2[Error](Conexión BD): No se puede conectar a la base de datos CodErr: (0) Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+19-10-2019 9:33:55[Info](Nucleo) Orden de cierre recivida
+19-10-2019 9:33:55[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:33:55[Info](Nucleo) Matando proceso principal
+19-10-2019 9:33:57[Info](Nucleo) Orden de cierre recivida
+19-10-2019 9:33:57[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:33:57[Info](Nucleo) Matando proceso principal
+19-10-2019 9:34:0[Info](Nucleo) Iniciando modulo grafico
+19-10-2019 9:34:0[Info](Nucleo) Iniciando modulo E/S
+19-10-2019 9:34:0[Info](Nucleo) Iniciando modulo de datos
+19-10-2019 9:34:3[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:3[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:3[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:4[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:4[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:4[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:4[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:4[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:4[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:4[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:12[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:12[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:12[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:12[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:12[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:12[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:12[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:12[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:12[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:12[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:12[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:12[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:12[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:12[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:18[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:18[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:26[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:26[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:26[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:26[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:26[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:27[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:27[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:47[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:47[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:47[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:47[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:47[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:47[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:59[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:59[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:59[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:59[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:59[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:59[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:59[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:59[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:59[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:59[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:59[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:59[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:59[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:34:59[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:34:59[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:34:59[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:0[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:0[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:0[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:0[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:0[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:0[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:0[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:0[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:0[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:0[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:0[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:0[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:0[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:0[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:0[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:0[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:0[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:0[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:0[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:0[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:10[Info](Iniciar sesion) Cerrando aplicaci�n
+19-10-2019 9:35:10[Info](Nucleo) Orden de cierre recivida
+19-10-2019 9:35:10[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:10[Info](Conexión BD): La conexión ya estaba cerrada
+19-10-2019 9:35:10[Info](Nucleo) Matando proceso principal
+19-10-2019 9:35:13[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:13[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:13[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:20[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:20[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:20[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:20[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:20[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:35:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:35:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:35:20[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:10[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:16[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:16[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:16[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:16[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:16[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:16[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:16[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:16[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:16[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:16[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:16[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:16[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:16[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:16[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:16[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:17[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:17[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:17[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:17[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:17[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:17[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:17[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:17[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:17[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:17[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:17[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:17[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:17[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:17[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:17[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:18[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:18[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:18[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:19[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:19[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:19[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:20[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:36:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:36:20[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:36:20[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:7[Info](Nucleo) Iniciando modulo grafico
+19-10-2019 9:42:7[Info](Nucleo) Iniciando modulo E/S
+19-10-2019 9:42:7[Info](Nucleo) Iniciando modulo de datos
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:10[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:10[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:10[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:10[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:11[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:11[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:11[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:11[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:11[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:11[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:11[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:11[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:11[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:11[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:11[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:46[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:46[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:46[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:46[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:46[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:46[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:56[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:56[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:56[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:57[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:57[Info](Conexión BD): Cerrando la conexion
+19-10-2019 9:42:57[Info](Conexión BD): Intentando conectar a la base de datos: jdbc:mysql://192.168.101.235:3306/Elorrieta
+19-10-2019 9:42:57[Info](Conexión BD): ¡Conexión exitosa!
+19-10-2019 9:42:57[Info](Conexión BD): Cerrando la conexion

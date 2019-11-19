@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
+
 import app.Main;
 import obj.Departamento;
 import obj.Empleado;
@@ -232,6 +234,7 @@ public class Interprete extends Main {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(archivo));
 		writer.write(htmlFinal);
 		writer.close();
+		JOptionPane.showMessageDialog(null, "Se ha generado el informe correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE, null);
 		}catch(IOException e) {e.printStackTrace();}
 	}
 	}
